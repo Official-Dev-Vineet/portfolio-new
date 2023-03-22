@@ -7,6 +7,7 @@
   text-decoration: none;
   color: var(--light);
   transition: all 300ms ease;
+  text-decoration-color: var(--primary);
 }
 :root {
   --primary: hsl(330, 91%, 34%);
@@ -17,12 +18,25 @@
   --light-gray: hsl(0, 0%, 41%);
   --light: hsl(0, 0%, 100%);
 }
+
+/* custom scrollbar  */
+::-webkit-scrollbar {
+  width: 1rem;
+}
+::-webkit-scrollbar-thumb {
+  background-color: var(--secondary);
+  border-radius: 2rem;
+}
+::-webkit-scrollbar-track {
+  background-color: var(--dark-gray);
+}
 body {
   background-color: var(--dark-gray);
   font-family: "Source Sans Pro", sans-serif;
 }
 html {
-  font-size: 10px;
+  font-size: clamp(6px,8px,12px);
+  scroll-behavior: smooth;
 }
 a:active,
 a:hover {
@@ -40,7 +54,16 @@ a:hover {
 header {
   display: flex;
   justify-content: space-between;
+  align-items: center;
   padding: 2rem;
+}
+header.active{
+  background-color:rgba(0,0,0,0.3);
+  position: fixed;
+  top: 0;
+  backdrop-filter:blur(1rem);
+  width: 100%;
+  z-index: 99;
 }
 header .logo {
   font-size: 5rem;
@@ -52,12 +75,12 @@ header .logo {
 .logo::before {
   content: "";
   position: absolute;
-  width: 150px;
-  height: 150px;
+  width: 15rem;
+  height: 15rem;
   background-image: linear-gradient(to right, var(--primary), var(--secondary));
-  transform: translate(-48px, -55px);
+  transform: translate(-4.8rem, -5.5rem);
   z-index: -1;
-  border-radius: 51% 89% 46% 54% ;
+  border-radius: 51% 89% 46% 54%;
   background-size: cover;
 }
 header nav ul {
@@ -75,10 +98,11 @@ header nav ul li a {
 .hero-page {
   display: grid;
   grid-template-columns: repeat(2, 1fr);
-  padding: 5rem;
+  padding: 3rem 5rem;
   place-items: center;
   gap: 2rem;
   position: relative;
+  min-height:calc(100vh - 85px)
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -89,7 +113,7 @@ header nav ul li a {
   margin-top: 2rem;
 }
 
-.hero-text .btn {
+.btn {
   display: inline-block;
   padding: 1rem 2rem;
   font-size: 2rem;
@@ -99,7 +123,7 @@ header nav ul li a {
   border-radius: 3rem;
   box-shadow: 0 0 0 2px var(--primary), 0 -1px 0 2px var(--secondary);
 }
-.hero-text .btn:hover {
+.btn:hover {
   color: var(--light);
   background-color: unset;
 }
@@ -109,19 +133,19 @@ header nav ul li a {
   border-radius: 44% 56% 64% 36% / 73% 72% 28% 27%;
   animation: radius infinite 10s ease alternate;
   background-size: cover;
-  height: 450px;
+  height: 45rem;
   width: 80%;
-  height: 450px;
   overflow: hidden;
   position: relative;
+  z-index: -1;
 }
 .hero-bubble {
   position: absolute;
-  bottom:-30%;
-  z-index: -1;
-  left: 50px;
-  width: 400px;
-  height: 300px;
+  bottom: -30%;
+  z-index: -2;
+  left: 5rem;
+  width: 40rem;
+  height: 30rem;
   opacity: 0.6;
   rotate: 34deg;
 }
@@ -131,6 +155,7 @@ header nav ul li a {
   position: absolute;
   top: 20%;
   right: 8%;
+  z-index: -1;
   rotate: 20deg;
   border-radius: 44% 56% 64% 36% / 73% 72% 28% 27%;
   width: 5rem;
@@ -142,6 +167,7 @@ header nav ul li a {
 .hero-bubble::after {
   content: "";
   position: absolute;
+  z-index: -1;
   bottom: 20%;
   left: -2%;
   rotate: 120deg;
@@ -155,17 +181,77 @@ header nav ul li a {
   width: 100%;
   height: 100%;
   object-fit: cover;
-  transform: translateY(20px);
+  transform: translateY(2rem);
   margin-left: 10%;
 }
 
 /* my services  */
-.hero-services{
-text-align: center;
+.hero-services,.portfolio {
+  padding-top:9rem;
+  text-align: center;
+  position: relative;
+  min-height: calc(100vh - 85px);
 }
-.hero-services .hero-text h1{
-    font-weight: 400;
-    text-decoration: underline;
-    font-variant: small-caps;
-    text-transform: unset;
+.hero-services .hero-text h1,.portfolio .hero-text h1 {
+  font-weight: 400;
+  text-decoration: underline;
+  font-variant: small-caps;
+  text-transform: unset;
+}
+.hero-services .my-services {
+  margin-top: 5rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4rem;
+  justify-content: space-around;
+  align-items: center;
+}
+.hero-services .my-services .service {
+  flex: 1 1 25rem;
+  text-align: center;
+  margin:0 2rem;
+  padding: 2rem;
+  border-radius: 1rem;
+  box-shadow: 0 0 1rem var(--light-gray);
+  backdrop-filter: blur(1rem);
+}
+.service > div:not(:last-child) {
+  margin-bottom: 2.4rem;
+}
+.service .icon {
+  transition-delay: 400ms;
+  width: 10rem;
+  height: 10rem;
+}
+.service:hover {
+  background-color: var(--light-primary);
+  color: var(--light-secondary);
+}
+.service:hover .icon {
+  margin-left: auto;
+}
+.service h2 {
+  font-size: 2.4rem;
+  color: var(--light-primary);
+}
+.service:hover h2 {
+  color: var(--light);
+}
+.service p {
+  font-size: 1.6rem;
+  margin-top: -1rem;
+}
+img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+.hero-services .hero-bubble{
+  rotate: -180deg;
+  right:0;
+  left:65%;
+  bottom: -15rem;
+  scale: 0.6;
+  opacity: 0.3;
+ background-image: radial-gradient(var(--light-primary) 30%,var(--light-secondary));
 }
