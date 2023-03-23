@@ -7,7 +7,8 @@
   text-decoration: none;
   color: var(--light);
   transition: all 300ms ease;
-  text-decoration-color: var(--primary);
+  border: none;
+  outline: none;
 }
 :root {
   --primary: hsl(330, 91%, 34%);
@@ -18,7 +19,6 @@
   --light-gray: hsl(0, 0%, 41%);
   --light: hsl(0, 0%, 100%);
 }
-
 /* custom scrollbar  */
 ::-webkit-scrollbar {
   width: 1rem;
@@ -35,7 +35,7 @@ body {
   font-family: "Source Sans Pro", sans-serif;
 }
 html {
-  font-size: clamp(6px,8px,12px);
+  font-size: clamp(6px, 8px, 12px);
   scroll-behavior: smooth;
 }
 a:active,
@@ -57,11 +57,12 @@ header {
   align-items: center;
   padding: 2rem;
 }
-header.active{
-  background-color:rgba(0,0,0,0.3);
+header.active {
+  background-color: rgba(0, 0, 0, 0.3);
   position: fixed;
   top: 0;
-  backdrop-filter:blur(1rem);
+  left: 0;
+  backdrop-filter: blur(1rem);
   width: 100%;
   z-index: 99;
 }
@@ -83,6 +84,9 @@ header .logo {
   border-radius: 51% 89% 46% 54%;
   background-size: cover;
 }
+section:not(:first-child){
+  padding-top: 10rem;
+}
 header nav ul {
   display: flex;
   gap: 4rem;
@@ -92,6 +96,7 @@ header nav ul li a {
   display: inline-block;
   transition: all 300ms ease;
   position: relative;
+  font-weight: 700;
 }
 
 /* hero section  */
@@ -102,7 +107,7 @@ header nav ul li a {
   place-items: center;
   gap: 2rem;
   position: relative;
-  min-height:calc(100vh - 85px)
+  min-height: calc(100vh - 85px);
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -186,13 +191,14 @@ header nav ul li a {
 }
 
 /* my services  */
-.hero-services,.portfolio {
-  padding-top:9rem;
+.hero-services,
+.portfolio {
   text-align: center;
   position: relative;
   min-height: calc(100vh - 85px);
 }
-.hero-services .hero-text h1,.portfolio .hero-text h1 {
+.hero-services .hero-text h1,
+.portfolio .hero-text h1 {
   font-weight: 400;
   text-decoration: underline;
   font-variant: small-caps;
@@ -209,7 +215,7 @@ header nav ul li a {
 .hero-services .my-services .service {
   flex: 1 1 25rem;
   text-align: center;
-  margin:0 2rem;
+  margin: 0 2rem;
   padding: 2rem;
   border-radius: 1rem;
   box-shadow: 0 0 1rem var(--light-gray);
@@ -245,13 +251,97 @@ img {
   width: 100%;
   height: 100%;
   object-fit: contain;
+  border-radius: 1rem;
 }
-.hero-services .hero-bubble{
+.hero-services .hero-bubble {
   rotate: -180deg;
-  right:0;
-  left:65%;
+  right: 0;
+  left: 65%;
   bottom: -15rem;
   scale: 0.6;
   opacity: 0.3;
- background-image: radial-gradient(var(--light-primary) 30%,var(--light-secondary));
+  background-image: radial-gradient(
+    var(--light-primary) 30%,
+    var(--light-secondary)
+  );
+}
+/* project section */
+.projects {
+  padding: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+}
+.project {
+  flex: 0 1 45rem;
+  overflow: hidden;
+  width: 25rem;
+  height: 25rem;
+  position: relative;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+  background-image: linear-gradient(45deg, var(--primary), var(--secondary));
+  border-radius: 1rem;
+}
+.project .project-image {
+  padding: 0 1rem;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+.project .project-details {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: translateY(100%);
+}
+.project:hover .project-image {
+  transform: translateY(-100%);
+}
+.project:hover .project-details {
+  transform: translateY(0);
+  padding: 2rem;
+  position: relative;
+}
+.project .project-details h3 {
+  font-size: 2rem;
+  text-decoration: underline;
+}
+p.description{
+  font-size: 1.6rem;
+  margin: 1rem 0;
+  text-transform: capitalize;
+}
+.project .project-details p span {
+  position: relative;
+  display: inline;
+  padding: 1rem;
+  font-size: 1.6rem;
+}
+.project .project-details p span::before {
+  content: "#";
+  color: attr(data-color);
+}
+.btn-group {
+  margin-top:1rem;
+ 
+}
+.btn-group button {
+  padding: 1rem;
+  background-image: linear-gradient(145deg, var(--primary), var(--secondary));
+  border-radius: 3rem;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+  flex: 1 1 25rem;
+}
+.btn-group button a {
+  text-transform: capitalize;
+  width: 100%;
+  height: 100%;
+  display: inline-block;
+  color: inherit;
 }
