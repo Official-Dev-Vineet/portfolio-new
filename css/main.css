@@ -55,7 +55,7 @@ header {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 3rem;
+  padding: 2rem;
 }
 header.active {
   background-color: rgba(0, 0, 0, 0.3);
@@ -67,12 +67,18 @@ header.active {
   width: 100%;
   z-index: 99;
 }
-header .logo {
+header .logo{
   font-size: 5rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 3px;
   position: relative;
+}
+.menu{
+  font-size: 4rem;
+}
+.menu{
+  display: none;
 }
 .logo::before {
   content: "";
@@ -99,7 +105,32 @@ header nav ul li a {
   position: relative;
   font-weight: 700;
 }
-
+nav.active {
+  display: block;
+}
+nav.active ul{
+  position: absolute;
+  z-index: 99;
+  top: 100%;
+  right: 0;
+  display: block;
+  backdrop-filter: blur(1rem);
+  padding: 2rem;
+  background-color: rgba(0, 0, 0, 0.8);
+  border-radius:0 0 0 3rem;
+}
+nav.active ul li{
+  margin:0 2rem;
+  display: block;
+}
+nav.active ul li a{
+  font-weight: 300;
+  opacity: 0.7;
+}
+nav.active ul li:hover a
+{
+  opacity: 1;
+}
 /* hero section  */
 .hero-page {
   display: grid;
@@ -108,7 +139,7 @@ header nav ul li a {
   place-items: center;
   gap: 2rem;
   position: relative;
-  min-height: calc(100vh - 85px);
+  min-height: 100vh;
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -148,7 +179,7 @@ header nav ul li a {
   position: absolute;
   bottom: -30%;
   z-index: -2;
-  left: 5rem;
+  left: 3rem;
   width: 40rem;
   height: 30rem;
   opacity: 0.6;
@@ -198,7 +229,9 @@ header nav ul li a {
   position: relative;
   min-height: calc(100vh - 85px);
 }
-.hero-text h1 {
+.hero-services .hero-text h1,
+.portfolio .hero-text h1,
+.contact-me .hero-text h1 {
   font-weight: 400;
   text-decoration: underline;
   font-variant: small-caps;
@@ -213,7 +246,7 @@ header nav ul li a {
   align-items: center;
 }
 .hero-services .my-services .service {
-  flex: 1 1 25rem;
+  flex: 1 1 30rem;
   text-align: center;
   margin: 0 2rem;
   padding: 2rem;
@@ -256,7 +289,7 @@ img {
 .hero-services .hero-bubble {
   rotate: -180deg;
   right: 0;
-  left: 65%;
+  left: unset;
   bottom: -15rem;
   scale: 0.6;
   opacity: 0.3;
@@ -273,9 +306,11 @@ img {
   align-items: center;
   justify-content: center;
   gap: 3rem;
+  overflow: hidden;
 }
 .project {
   flex: 0 1 45rem;
+  margin: auto;
   overflow: hidden;
   width: 25rem;
   height: 25rem;
@@ -285,7 +320,7 @@ img {
   border-radius: 1rem;
 }
 .project:hover {
-  transform: scale(1.2) skewY(-2deg);
+  transform: scale(0.9);
   z-index: 1;
   outline: 0.3rem dashed var(--light-gray);
 }
@@ -349,15 +384,20 @@ p.description {
   display: inline-block;
   color: inherit;
 }
-.contact-form h3{
+.contact-form h3 {
   font-size: 3rem;
   margin-bottom: 2rem;
 }
 /* contact section */
+.contact-me {
+  padding: 3rem;
+}
+.contact-me p {
+  margin-bottom: 2rem;
+}
 .contact-area {
   display: flex;
   flex-wrap: wrap;
-  padding: 8rem;
   gap: 3rem;
 }
 .contact-area > div {
@@ -365,13 +405,13 @@ p.description {
 }
 .contact-link,
 .contact-form {
-  border: 0.5rem dashed var(--light-gray);
+  outline: 0.5rem dashed var(--light-gray);
   padding: 3rem;
   border-radius: 3rem;
 }
 .contact-link:hover,
 .contact-form:hover {
-  border-color: var(--light-primary);
+  outline-color: var(--light-primary);
 }
 .contact-link .contact-info {
   display: flex;
@@ -435,9 +475,62 @@ textarea {
   border-radius: 4rem;
   background-color: transparent;
 }
-input:focus{
+input:focus {
   border-color: var(--light-primary);
 }
 ::placeholder {
   color: var(--primary);
+}
+@media screen and (max-width: 1200px) {
+  .project {
+    flex: 1 1 35rem;
+  }
+}
+@media screen and (max-width: 750px) {
+  .menu {
+    display: block;
+  }
+  header .logo {
+    font-size: 3rem;
+  }
+  .logo::before {
+    width: 13rem;
+    height: 13rem;
+  }
+  .hero-page {
+    grid-template-columns: 1fr;
+    padding: 2rem 3rem;
+  }
+  .hero-image {
+    order: -1;
+    height: 50vw;
+  }
+  .hero-text h1 {
+    font-size: 3rem;
+  }
+  .hero-text p {
+    font-size: 1.6rem;
+  }
+  .project {
+    flex: 1 1 30rem;
+  }
+  .hero-bubble {
+    scale: 0.6;
+  }
+  .contact-area > div {
+    flex: 1 1 20rem;
+  }
+  .contact-link .contact-info .icon {
+    width: 4rem;
+    height: 4rem;
+  }
+  .contact-info .contact-text {
+    font-size: 1.2rem;
+  }
+  .contact-form h3 {
+    font-size: 2rem;
+  }
+  header nav {
+    display: none;
+  }
 }
