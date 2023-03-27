@@ -105,19 +105,30 @@ header nav ul li a {
   position: relative;
   font-weight: 700;
 }
-
+/* intersecting styling */
+.animate{
+  opacity: 0;
+  transform: translateY(30px);
+  scale: 0.5;
+}
+.animate.animated {
+  opacity: 1;
+  transition-delay: 300ms;
+  transform: translateY(0);
+  scale: 1;
+}
 /* hero section  */
 .hero-page {
   display: flex;
   padding: 3rem 5rem;
   align-items: center;
-  gap: 2rem;
+  gap: 5rem;
   justify-content: space-around;
   flex-wrap: wrap;
   position: relative;
   min-height: 100vh;
 }
-.hero-page .hero-text{
+.hero-page .hero-text {
   max-width: 60rem;
 }
 .hero-text h1 {
@@ -482,7 +493,7 @@ input:focus {
   }
   .hero-image {
     order: -1;
-    height: 50vw;
+    min-height: 45rem;
   }
   .hero-text h1 {
     font-size: 3rem;
@@ -537,26 +548,4 @@ input:focus {
   nav.active ul li:hover a {
     opacity: 1;
   }
-  .animate {
-    opacity: 0;
-    transform: translateX(1000px);
-    scale: 0.5;
-  }
-  .animate.animated {
-    opacity: 1;
-    transition-delay: 300ms;
-    transform: translateX(0);
-    scale: 1;
-  }
-}
-.animate {
-  opacity: 0;
-  transform: translateY(-30px);
-  scale: 0.5;
-}
-.animate.animated {
-  opacity: 1;
-  transition-delay: 300ms;
-  transform: translateY(0);
-  scale: 1;
 }
