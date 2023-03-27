@@ -40,11 +40,3 @@ textarea.addEventListener("scrollHeightChange", e => {
     console.log(e.target.value)
 })
 
-const scrollHandler = () => {
-
-}
-const links = document.querySelectorAll("nav ul li")
-links.forEach((link) => {
-    link.addEventListener("click", scrollHandler)
-})
-
