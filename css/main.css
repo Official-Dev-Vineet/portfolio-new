@@ -60,9 +60,8 @@ header {
 }
 header.active {
   background-color: rgba(0, 0, 0, 0.3);
-  position: fixed;
+  position: sticky;
   top: 0;
-  left: 0;
   backdrop-filter: blur(1rem) brightness(60%);
   width: 100%;
   z-index: 99;
@@ -91,9 +90,6 @@ header .logo {
   border-radius: 51% 89% 46% 54%;
   background-size: cover;
 }
-section:not(:first-child) {
-  padding-top: 10rem;
-}
 header nav ul {
   display: flex;
   gap: 4rem;
@@ -106,7 +102,7 @@ header nav ul li a {
   font-weight: 700;
 }
 /* intersecting styling */
-.animate{
+.animate {
   opacity: 0;
   transform: translateY(30px);
   scale: 0.5;
@@ -488,8 +484,7 @@ input:focus {
     height: 13rem;
   }
   .hero-page {
-    grid-template-columns: 1fr;
-    padding: 2rem 3rem;
+    justify-content: flex-start;
   }
   .hero-image {
     order: -1;
