@@ -56,28 +56,28 @@ header {
   justify-content: space-between;
   align-items: center;
   padding: 2rem;
+  position: relative;
 }
 header.active {
   background-color: rgba(0, 0, 0, 0.3);
-  position: sticky;
+  position: fixed;
   top: 0;
   left: 0;
   backdrop-filter: blur(1rem) brightness(60%);
-  padding: 2rem 3rem;
   width: 100%;
   z-index: 99;
 }
-header .logo{
+header .logo {
   font-size: 5rem;
   text-transform: uppercase;
   font-weight: 700;
   letter-spacing: 3px;
   position: relative;
 }
-.menu{
+.menu {
   font-size: 4rem;
 }
-.menu{
+.menu {
   display: none;
 }
 .logo::before {
@@ -105,41 +105,20 @@ header nav ul li a {
   position: relative;
   font-weight: 700;
 }
-nav.active {
-  display: block;
-}
-nav.active ul{
-  position: absolute;
-  z-index: 99;
-  top: 100%;
-  right: 0;
-  display: block;
-  backdrop-filter: blur(1rem);
-  padding: 2rem;
-  background-color: rgba(0, 0, 0, 0.8);
-  border-radius:0 0 0 3rem;
-}
-nav.active ul li{
-  margin:0 2rem;
-  display: block;
-}
-nav.active ul li a{
-  font-weight: 300;
-  opacity: 0.7;
-}
-nav.active ul li:hover a
-{
-  opacity: 1;
-}
+
 /* hero section  */
 .hero-page {
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  display: flex;
   padding: 3rem 5rem;
-  place-items: center;
+  align-items: center;
   gap: 2rem;
+  justify-content: space-around;
+  flex-wrap: wrap;
   position: relative;
   min-height: 100vh;
+}
+.hero-page .hero-text{
+  max-width: 60rem;
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -170,7 +149,7 @@ nav.active ul li:hover a
   border-radius: 44% 56% 64% 36% / 73% 72% 28% 27%;
   background-size: cover;
   height: 45rem;
-  width: 80%;
+  width: 45rem;
   overflow: hidden;
   position: relative;
   z-index: -1;
@@ -533,4 +512,51 @@ input:focus {
   header nav {
     display: none;
   }
+  nav.active {
+    display: block;
+  }
+  nav.active ul {
+    position: absolute;
+    z-index: 99;
+    top: 100%;
+    right: 0;
+    display: block;
+    backdrop-filter: blur(1rem);
+    padding: 2rem;
+    background-color: var(--dark-gray);
+    border-radius: 0 0 0 3rem;
+  }
+  nav.active ul li {
+    margin: 0 2rem;
+    display: block;
+  }
+  nav.active ul li a {
+    font-weight: 300;
+    opacity: 0.7;
+  }
+  nav.active ul li:hover a {
+    opacity: 1;
+  }
+  .animate {
+    opacity: 0;
+    transform: translateX(1000px);
+    scale: 0.5;
+  }
+  .animate.animated {
+    opacity: 1;
+    transition-delay: 300ms;
+    transform: translateX(0);
+    scale: 1;
+  }
+}
+.animate {
+  opacity: 0;
+  transform: translateY(-30px);
+  scale: 0.5;
+}
+.animate.animated {
+  opacity: 1;
+  transition-delay: 300ms;
+  transform: translateY(0);
+  scale: 1;
 }
