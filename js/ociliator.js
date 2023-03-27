@@ -1,10 +1,6 @@
 function initOciliator(remove) {
     if (!remove) {
       var ctx,
-        hue,
-        logo,
-        form,
-        buffer,
         target = {},
         tendrils = [],
         settings = {};
@@ -220,7 +216,6 @@ function initOciliator(remove) {
           target.x = event.clientX;
           target.y = event.clientY;
         }
-        event.preventDefault();
       }
 
       function touchstart(event) {
@@ -229,71 +224,6 @@ function initOciliator(remove) {
           target.y = event.touches[0].pageY;
         }
       }
-
-      function keyup(event) {
-        switch (event.keyCode) {
-          case 32:
-            save();
-            break;
-          default:
-          // console.log(event.keyCode);
-        }
-      }
-
-      function letters(id) {
-        var el = document.getElementById(id),
-          letters = el.innerHTML.replace("&amp;", "&").split(""),
-          heading = "";
-
-        for (var i = 0, n = letters.length, letter; i < n; i++) {
-          letter = letters[i].replace("&", "&amp");
-          heading += letter.trim()
-            ? '<span class="letter-' + i + '">' + letter + "</span>"
-            : "&nbsp;";
-        }
-
-        el.innerHTML = heading;
-        setTimeout(function () {
-          el.className = "transition-in";
-        }, Math.random() * 500 + 500);
-      }
-
-      function save() {
-        if (!buffer) {
-          buffer = document.createElement("canvas");
-          buffer.width = screen.availWidth;
-          buffer.height = screen.availHeight;
-          buffer.ctx = buffer.getContext("2d");
-
-          form = document.createElement("form");
-          form.method = "post";
-          form.input = document.createElement("input");
-          form.input.type = "hidden";
-          form.input.name = "data";
-          form.appendChild(form.input);
-
-          document.body.appendChild(form);
-        }
-
-        buffer.ctx.fillStyle = "rgba(8,5,16)";
-        buffer.ctx.fillRect(0, 0, buffer.width, buffer.height);
-
-        buffer.ctx.drawImage(
-          canvas,
-          Math.round(buffer.width / 2 - canvas.width / 2),
-          Math.round(buffer.height / 2 - canvas.height / 2)
-        );
-
-        window.open(
-          buffer.toDataURL(),
-          "wallpaper",
-          "top=0,left=0,width=" + buffer.width + ",height=" + buffer.height
-        );
-
-        // form.input.value = buffer.toDataURL().substr(22);
-        // form.submit();
-      }
-
       window.requestAnimFrame = (function () {
         return (
           window.requestAnimationFrame ||
