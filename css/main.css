@@ -30,6 +30,7 @@
 ::-webkit-scrollbar-track {
   background-color: var(--dark-gray);
 }
+
 body {
   background-color: var(--dark-gray);
   font-family: "Source Sans Pro", sans-serif;
@@ -45,9 +46,13 @@ a:hover {
 .theme-text {
   color: var(--primary);
 }
+section{
+  padding-top: 9rem;
+}
 canvas{
   position: fixed;
   top: 0;
+  left: 0;
   width: 100%;
   height: 100%;
   z-index: -1;
@@ -144,13 +149,15 @@ header nav ul li a {
   padding: 3rem 5rem;
   align-items: center;
   gap: 5rem;
-  justify-content: space-around;
+  justify-content: center;
   flex-wrap: wrap;
   position: relative;
-  min-height: 100vh;
+  width: 100%;
+  height: 100%;
 }
 .hero-page .hero-text {
-  max-width: 60rem;
+  flex: 0 1 50rem;
+  margin:auto;
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -170,6 +177,7 @@ header nav ul li a {
   margin-top: 2rem;
   border-radius: 3rem;
   box-shadow: 0 0 0 2px var(--primary), 0 -1px 0 2px var(--secondary);
+  cursor: pointer;
 }
 .btn:hover {
   color: var(--light);
@@ -182,6 +190,7 @@ header nav ul li a {
   background-size: cover;
   height: 45rem;
   width: 45rem;
+  margin: auto;
   overflow: hidden;
   position: relative;
   z-index: -1;
@@ -238,7 +247,6 @@ header nav ul li a {
 .contact-me {
   text-align: center;
   position: relative;
-  min-height: calc(100vh - 85px);
 }
 .hero-services .hero-text h1,
 .portfolio .hero-text h1,
@@ -319,6 +327,27 @@ img {
   gap: 3rem;
   overflow: hidden;
 }
+
+ /* filter styling  */
+ .filter{
+  margin:2rem auto;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+ }
+ .filter input{
+  padding: 2rem;
+  width: 80%;
+  max-width: 45rem;
+  border-radius: 2rem;
+  background-color: transparent;
+  outline: 0.3rem double var(--light-gray);
+ }
+ .filter .btn{
+  margin-top: 0;
+ }
 .project {
   flex: 0 1 45rem;
   margin: auto;
@@ -370,7 +399,6 @@ p.description {
 }
 .project .project-details p span {
   position: relative;
-  display: inline;
   padding: 1rem;
   font-size: 1.6rem;
 }
@@ -401,7 +429,7 @@ p.description {
 }
 /* contact section */
 .contact-me {
-  padding: 3rem;
+  padding:9rem 3rem;
 }
 .contact-me p {
   margin-bottom: 2rem;
@@ -479,6 +507,9 @@ textarea {
   background-color: var(--light-gray);
   border-radius: 3rem;
 }
+.submit-btn button.active{
+  background-color: var(--primary);
+}
 .input-area input {
   font-size: 1.8rem;
   border: 0.3rem dashed var(--light-gray);
@@ -495,6 +526,12 @@ input:focus {
   color: var(--primary);
 }
 @media screen and (max-width: 1200px) {
+  .hero-page .hero-text{
+    flex: 0 1 30rem;
+  }
+  .hero-page .hero-image{
+    flex: 0 1 35rem;
+  }
   .project {
     flex: 1 1 35rem;
   }
@@ -518,6 +555,9 @@ input:focus {
   }
   .hero-page {
     justify-content: flex-start;
+  }
+  .hero-page .hero-text{
+    flex: 1 1 40rem;
   }
   .hero-image {
     order: -1;
