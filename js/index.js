@@ -57,6 +57,9 @@ links.forEach((link) => {
 // apply filter
 const tags = document.querySelectorAll(".tags span")
 const filterName = document.querySelector(".filter input")
+filterName.onfocus=()=>{
+    filterName.value=""
+}
 const filterBtn = document.querySelector(".filter button")
 const projects = document.querySelectorAll(".projects .project")
 filterBtn.addEventListener('click', e => {
@@ -82,7 +85,6 @@ filterBtn.addEventListener('click', e => {
 
 let filteredTags = []
 tags.forEach((tag) => {
-    filteredTags.push("all")
     filteredTags.push(tag.textContent.trim())
     filteredTags.sort()
 })
