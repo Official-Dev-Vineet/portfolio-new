@@ -352,8 +352,7 @@ img {
   flex: 0 1 45rem;
   margin: auto;
   overflow: hidden;
-  width: 25rem;
-  height: 25rem;
+  height: 26rem;
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
   background-image: linear-gradient(45deg, var(--primary), var(--secondary));
@@ -401,6 +400,7 @@ p.description {
   position: relative;
   padding: 1rem;
   font-size: 1.6rem;
+  text-transform: capitalize;
 }
 .project .project-details p span::before {
   content: "#";
