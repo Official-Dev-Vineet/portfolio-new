@@ -6,7 +6,6 @@
   list-style: none;
   text-decoration: none;
   color: var(--light);
-  transition: all 300ms ease;
   border: none;
   outline: none;
 }
@@ -46,10 +45,10 @@ a:hover {
 .theme-text {
   color: var(--primary);
 }
-section{
+section {
   padding-top: 9rem;
 }
-canvas{
+canvas {
   position: fixed;
   top: 0;
   left: 0;
@@ -69,7 +68,7 @@ canvas{
   cursor: pointer; /* Add a mouse pointer on hover */
   padding: 1.5rem; /* Some padding */
   border-radius: 1rem; /* Rounded corners */
-  font-size:2.4rem; /* Increase font size */
+  font-size: 2.4rem; /* Increase font size */
 }
 
 #myBtn:hover {
@@ -157,7 +156,7 @@ header nav ul li a {
 }
 .hero-page .hero-text {
   flex: 0 1 50rem;
-  margin:auto;
+  margin: auto;
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -272,6 +271,7 @@ header nav ul li a {
   border-radius: 1rem;
   box-shadow: 0 0 1rem var(--light-gray);
   backdrop-filter: blur(1rem);
+  transition: all 400ms ease-in;
 }
 .service > div:not(:last-child) {
   margin-bottom: 2.4rem;
@@ -328,26 +328,26 @@ img {
   overflow: hidden;
 }
 
- /* filter styling  */
- .filter{
-  margin:2rem auto;
+/* filter styling  */
+.filter {
+  margin: 2rem auto;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 2rem;
   flex-wrap: wrap;
- }
- .filter input{
+}
+.filter input {
   padding: 2rem;
   width: 80%;
   max-width: 45rem;
   border-radius: 2rem;
   background-color: transparent;
   outline: 0.3rem double var(--light-gray);
- }
- .filter .btn{
+}
+.filter .btn {
   margin-top: 0;
- }
+}
 .project {
   flex: 0 1 45rem;
   margin: auto;
@@ -357,6 +357,7 @@ img {
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
   background-image: linear-gradient(45deg, var(--primary), var(--secondary));
   border-radius: 1rem;
+  transition: all 400ms ease-in;
 }
 .project:hover {
   transform: scale(0.9);
@@ -429,7 +430,7 @@ p.description {
 }
 /* contact section */
 .contact-me {
-  padding:9rem 3rem;
+  padding: 9rem 3rem;
 }
 .contact-me p {
   margin-bottom: 2rem;
@@ -507,7 +508,7 @@ textarea {
   background-color: var(--light-gray);
   border-radius: 3rem;
 }
-.submit-btn button.active{
+.submit-btn button.active {
   background-color: var(--primary);
 }
 .input-area input {
@@ -526,10 +527,10 @@ input:focus {
   color: var(--primary);
 }
 @media screen and (max-width: 1200px) {
-  .hero-page .hero-text{
+  .hero-page .hero-text {
     flex: 0 1 30rem;
   }
-  .hero-page .hero-image{
+  .hero-page .hero-image {
     flex: 0 1 35rem;
   }
   .project {
@@ -556,7 +557,7 @@ input:focus {
   .hero-page {
     justify-content: flex-start;
   }
-  .hero-page .hero-text{
+  .hero-page .hero-text {
     flex: 1 1 40rem;
   }
   .hero-image {

@@ -1,3 +1,4 @@
+"use strict";
 const nav = document.querySelector("header")
 const myButton = document.getElementById("myBtn");
 window.addEventListener("scroll", e => {
