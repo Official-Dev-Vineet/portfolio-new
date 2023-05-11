@@ -31,7 +31,7 @@ hamburger.addEventListener("click", e => {
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         entry.target.classList.toggle("animated", entry.isIntersecting)
-        // if (entry.isIntersecting) return observer.unobserve(entry.target)
+        if (entry.isIntersecting) return observer.unobserve(entry.target)
     })
 }, {
     threshold: 1,
