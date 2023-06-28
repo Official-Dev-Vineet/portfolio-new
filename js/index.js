@@ -110,12 +110,19 @@ submitBtn.addEventListener("click", (e) => {
   const email = data.get("clientEmail").trim();
   const subject = data.get("subject").trim();
   const projectDetails = data.get("projectDetails").trim();
-  window.location.href = `https://wa.me/+7983920962&text=my name is ${name}. \n and my email id : ${email} \n i msg to you regarding ${subject} and i have an project idea : ${projectDetails}`;
+  name.length > 0 &&
+  email.length > 0 &&
+  subject.length > 0 &&
+  projectDetails.length > 0
+    ? submitData()
+    : alert("Please fill correct details !");
+  function submitData() {
+    window.location.href = `https://wa.me/917983920962?text=Name :${name}. Email :${email}. Subject : ${subject}. Project Idea : ${projectDetails}`;
+  }
 });
 
-
 // target blank generator
-const targetedLink=document.querySelectorAll(".btn-group a") 
-targetedLink.forEach((link)=>{
-  link.setAttribute("target","_blank")
-})
+const targetedLink = document.querySelectorAll(".btn-group a");
+targetedLink.forEach((link) => {
+  link.setAttribute("target", "_blank");
+});
