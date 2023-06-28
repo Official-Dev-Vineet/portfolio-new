@@ -115,7 +115,7 @@ submitBtn.addEventListener("click", (e) => {
 
 
 // target blank generator
-const targetedLink=document.querySelectorAll(".button-group a") 
+const targetedLink=document.querySelectorAll(".btn-group a") 
 targetedLink.forEach((link)=>{
   link.setAttribute("target","_blank")
 })
