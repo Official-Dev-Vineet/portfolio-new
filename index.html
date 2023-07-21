@@ -5,12 +5,15 @@
   <meta charset="UTF-8" />
   <meta http-equiv="X-UA-Compatible" content="IE=edge" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <meta name="title" content="vineet signh || front-end web developer" />
+  <meta name="title" content="Vineet Singh || React Js Developer" />
   <meta name="description"
     content=" i am a self-taught web developer  So, whatever I've learn is from Google,Youtube, Udemy and Frontend Mentor. I love creating responsive websites; even that's my expertise." />
   <meta name="keywords" content="portfolio" />
   <meta name="robots" content="index, follow" />
-  <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+  <meta name="og-image" content="/images/my-image.png" />
+  <meta name="og-description"
+    content="i am a self-taught web developer  So, whatever I've learn is from Google,Youtube, Udemy and Frontend Mentor. I love creating responsive websites; even that's my expertise.""/>
+  <meta http-equiv=" Content-Type" content="text/html; charset=utf-8" />
   <meta name="language" content="English" />
   <meta name="author" content="Vineet Singh" />
   <title>Vineet Singh || Front-End Web Developer</title>
@@ -18,6 +21,7 @@
   <link rel="icon" href="images/person-svgrepo-com.svg" />
   <script src="js/index.js" async></script>
   <script src="js/ociliator.js" defer></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
 </head>
 
 <body>
@@ -32,19 +36,39 @@
           <li><a style="--color: green" href="#services">Services</a></li>
           <li><a style="--color: blue" href="#projects">Projects</a></li>
           <li><a style="--color: purple" href="#hire-me">Hire Me</a></li>
+          <li><a href="#theme" class="theme">Theme</a></li>
         </ul>
       </nav>
       <div class="menu">&#9776;</div>
     </header>
+    <section id="theme">
+      <div class="my-theme">
+        <h2>Theme color</h2>
+      </div>
+      <ul>
+        <li><span data-color="crimson" style="background-color: crimson;"></span></li>
+        <li><span data-color="#2980b9" style="background-color: rgb(41, 128, 185);"></span></li>
+        <li><span data-color="#f39c12" style="background-color: rgb(243, 156, 18);"></span></li>
+        <li><span data-color="#27ae60" style="background-color: rgb(39, 174, 96);"></span></li>
+        <li><span data-color="#8e44ad" style="background-color: rgb(142, 68, 173);"></span></li>
+        <li><span data-color="#e84393" style="background-color: rgb(232, 67, 147);"></span></li>
+        <li><span data-color="#ff4757" style="background-color: rgb(255, 71, 87);"></span></li>
+        <li><span data-color="#ffc312" style="background-color: rgb(255, 195, 18);"></span></li>
+        <li><span data-color="#17c0eb" style="background-color: rgb(23, 192, 235);"></span></li>
+        <li><span data-color="#c2a" style="background-color: rgb(204, 34, 170);"></span></li>
+      </ul>
+      <div class="your-theme">
+        <h4>Custom color</h4>
+        <input type="color" id="color">
+      </div>
+    </section>
     <section class="hero-page" id="about-me">
       <div class="hero-text">
         <h1>
-          i am a self-taught <span class="theme-text"> web developer </span>.
+          i am a self-taught <span class="theme-text typing"></span>.
         </h1>
         <p>
-          So, whatever I've learn is from Google,Youtube, Udemy and Frontend
-          Mentor. I love creating responsive websites; even that's my
-          expertise.
+          I'm passionate about web development because it satisfies my need for creativity. It enabled me to easily put my ideas into digital form and get results back really quick. I still remember the first time I created an HTML page and opened it in the browser. A whole new world of possibilities appeared before my eyes.
         </p>
         <a href="docs/resume.pdf" download="Vineet Singh Resume" class="btn link-btn">download CV</a>
       </div>
@@ -129,7 +153,7 @@
       <div class="projects">
         <div class="project animate">
           <div class="project-image">
-            <img src="images/project-image/FreeScout.png" alt="freeScout clone" />
+            <img src="images/project-image/freeScoud.png" alt="freeScout clone" />
           </div>
           <div class="project-details">
             <h3 class="title">IP Address Tracker</h3>

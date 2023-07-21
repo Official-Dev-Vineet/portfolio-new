@@ -126,3 +126,30 @@ const targetedLink = document.querySelectorAll(".btn-group a");
 targetedLink.forEach((link) => {
   link.setAttribute("target", "_blank");
 });
+
+// typing js 
+
+var typed = new Typed(".typing", {
+  strings: ["Developer", "Freelancer", "Debugger"],
+  typeSpeed: 200,
+  backSpeed: 100,
+  loop: true,
+})
+
+//theme setup
+let color = document.querySelectorAll("#theme ul li span").forEach((e) => {
+  e.style.backgroundColor = `${e.getAttribute("data-color")}`
+  e.onclick = () => {
+    document.querySelector(":root").style.setProperty("--primary", e.getAttribute("data-color"));
+    document.querySelector("#theme").classList.remove("active")
+  }
+})
+document.querySelector(".theme").onclick = () => {
+  document.querySelector("#theme").classList.toggle("active")
+}
+document.querySelector("#color").onchange = () => {
+  let color = document.querySelector("#color").value;
+  document.querySelector(":root").style.setProperty("--primary", color);
+  document.querySelector("#theme").classList.remove("active")
+
+}
