@@ -13,7 +13,7 @@ window.addEventListener("scroll", (e) => {
     myButton.style.display = "none";
   }
 });
-myButton.addEventListener("click", function topFunction() {
+myButton.addEventListener("click", () => {
   document.body.scrollTop = 0; // For Safari
   document.documentElement.scrollTop = 0; // For Chrome, Firefox, IE and Opera
 });
@@ -73,14 +73,10 @@ filterBtn.addEventListener("click", (e) => {
     tags.forEach((tag) => {
       tagsData.push(tag.textContent);
     });
-    if (tagsData.includes(filterValue)) {
-      project.style.display = "block";
-    } else if (filterValue == "all") {
-      project.style.display = "block";
-    } else if (filterValue == "") {
-    } else {
-      project.style.display = "none";
-    }
+    if (tagsData.includes(filterValue)) return project.style.display = "block";
+    if ( filterValue === "all") return project.style.display = "block";
+    if (filterValue === "") return 
+    project.style.display = "none";
   });
 });
 
@@ -93,7 +89,7 @@ const newFilterTags = new Set(filteredTags);
 // filteredTags=Array.from(newFilterTags)
 filteredTags = [...newFilterTags];
 const datalist = document.querySelector("datalist");
-filteredTags.map((tag) => {
+filteredTags.forEach((tag) => {
   let option = document.createElement("option");
   option.value = tag;
   option.textContent = tag;
@@ -117,7 +113,8 @@ submitBtn.addEventListener("click", (e) => {
     ? submitData()
     : alert("Please fill correct details !");
   function submitData() {
-    window.location.href = `https://wa.me/917983920962?text=Name :${name}. Email :${email}. Subject : ${subject}. Project Idea : ${projectDetails}`;
+    const date = new Date();
+    window.location.href = `https://wa.me/917983920962?text=Name :${name},%0AEmail :${email}%0A Subject : ${subject}%0A Project Idea : ${projectDetails}%0A Date : ${date} %0A this is send from Vineet Singh Portfolio and below is the link : %0A ${window.location.href}`;
   }
 });
 
@@ -149,7 +146,7 @@ let color = document.querySelectorAll("#theme ul li span").forEach((e) => {
 document.querySelector(".theme").onclick = () => {
   document.querySelector("#theme").classList.toggle("active");
 };
-document.querySelector("#color").onchange = () => {
+document.querySelector("#color").oninput = () => {
   let color = document.querySelector("#color").value;
   document.querySelector(":root").style.setProperty("--secondary", color);
   document.querySelector("#theme").classList.remove("active");

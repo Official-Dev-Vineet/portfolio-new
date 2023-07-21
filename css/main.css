@@ -54,9 +54,12 @@ html {
   right: -200px;
   flex-direction: column;
   z-index: 8;
-  background-color: var(--primary);
-  border-radius: 5px 0 0 0;
+  background-color: rgba(255, 255, 255, 0.498);
+  backdrop-filter: blur(5px);
+  border-radius: 5px 0 0 5px;
   font-weight: 300;
+  transition: 0.3s;
+  box-shadow: 0 0 0 2px #fff, 0 0  0 5px var(--primary);
 }
 #theme.active {
   right: 0;
