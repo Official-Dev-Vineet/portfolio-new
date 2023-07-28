@@ -9,6 +9,7 @@ const animate = document.querySelectorAll(".animate");
 const textarea = document.querySelector("textarea");
 const searchResult = document.querySelector("#searchResult");
 const username = "Vineet Singh";
+const profile = ["Developer", "Freelancer", "Debugger", "Tester"];
 
 window.addEventListener("scroll", (e) => {
   if (window.scrollY > 20) {
@@ -147,7 +148,7 @@ targetedLink.forEach((link) => {
 
 // typing js
 var typed = new Typed(".typing", {
-  strings: ["Developer", "Freelancer", "Debugger"],
+  strings: profile,
   typeSpeed: 200,
   backSpeed: 100,
   loop: true,
@@ -199,7 +200,6 @@ tags.forEach((tag) => {
 });
 let timer = null;
 const msgShower = () => {
-  const profile = ["Developer", "Freelancer", "Debugger"];
   timer = setInterval(() => {
     console.clear();
     let msg = profile[Math.floor(Math.random() * profile.length)];
