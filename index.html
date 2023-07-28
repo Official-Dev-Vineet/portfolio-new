@@ -16,9 +16,10 @@
   <meta http-equiv=" Content-Type" content="text/html; charset=utf-8" />
   <meta name="language" content="English" />
   <meta name="author" content="Vineet Singh" />
-  <title>Vineet Singh || Front-End Web Developer</title>
+  <title>Vineet Singh || React Js Developer</title>
   <link rel="stylesheet" href="css/main.css" />
   <link rel="icon" href="images/person-svgrepo-com.svg" />
+  <link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
 </head>
 
@@ -30,11 +31,11 @@
       <div class="logo">Vs</div>
       <nav>
         <ul>
-          <li><a style="--color: crimson" href="#about-me">About Me</a></li>
-          <li><a style="--color: green" href="#services">Services</a></li>
-          <li><a style="--color: blue" href="#projects">Projects</a></li>
-          <li><a style="--color: purple" href="#hire-me">Hire Me</a></li>
-          <li><a href="#theme" class="theme">Theme</a></li>
+          <li><a style="--color: #f39c12;--delay:0.2s" href="#about-me">About Me</a></li>
+          <li><a style="--color: #a60857;--delay:0.4s" href="#services">Services</a></li>
+          <li><a style="--color:#8e44ad;--delay:0.6s" href="#projects">Projects</a></li>
+          <li><a style="--color: #ff4757;--delay:0.8s" href="#hire-me">Hire Me</a></li>
+          <li><a style="--color:#27ae60;--delay:1s" id="#theme" href="#theme" class="theme">Theme</a></li>
         </ul>
       </nav>
       <div class="menu">&#9776;</div>
@@ -44,7 +45,7 @@
         <h2>Theme color</h2>
       </div>
       <ul>
-        <li><span data-color="#a60857" style="background-color: hsl(330, 91%, 34%);"></span></li>
+        <li><span data-color="#a60857" title="current color" style="background-color: hsl(330, 91%, 34%);"></span></li>
         <li><span data-color="#2980b9" style="background-color: hsl(204, 64%, 44%);"></span></li>
         <li><span data-color="#f39c12" style="background-color: hsl(37, 90%, 51%);"></span></li>
         <li><span data-color="#27ae60" style="background-color: hsl(145, 63%, 42%);"></span></li>
@@ -56,7 +57,7 @@
         <li><span data-color="#cc22aa" style="background-color: hsl(312, 71%, 47%);"></span></li>
       </ul>
       <div class="your-theme">
-        <h4>Secondary color</h4>
+        <h1>Secondary color</h1>
         <input type="color" id="color" value="#63008a">
       </div>
     </section>
@@ -144,7 +145,7 @@
         <p>I have done few projects while leaning web development.</p>
       </div>
       <div class="filter">
-        <input type="text" list="filter" placeholder="search..." />
+        <input type="text" list="filter" placeholder="Search..." />
         <datalist id="filter">
           <option value="all">all</option>
         </datalist>
@@ -1010,7 +1011,7 @@
                 <input type="text" name="subject" placeholder="Subject" />
               </div>
               <div class="text-area">
-                <textarea cols="40" placeholder="describe project..." name="projectDetails"></textarea>
+                <textarea cols="40" rows="10" placeholder="Describe Project..." name="projectDetails"></textarea>
               </div>
               <div class="submit-btn">
                 <button type="submit" class="active" id="submit">Submit</button>
@@ -1021,7 +1022,7 @@
       </div>
     </section>
   </div>
-  <script src="js/ociliator.js"></script>
+  <!-- <script src="js/ociliator.js"></scrip> -->
   <script src="js/index.js" async></script>
 
 </body>

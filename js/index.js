@@ -8,6 +8,7 @@ const menu = document.querySelector("nav");
 const animate = document.querySelectorAll(".animate");
 const textarea = document.querySelector("textarea");
 const searchResult = document.querySelector("#searchResult");
+const username = "Vineet Singh";
 
 window.addEventListener("scroll", (e) => {
   if (window.scrollY > 20) {
@@ -32,7 +33,6 @@ hamburger.addEventListener("click", (e) => {
 });
 
 // intersection observer scripting
-
 const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
@@ -41,7 +41,7 @@ const observer = new IntersectionObserver(
     });
   },
   {
-    threshold: 1,
+    threshold: 0.5,
     rootMargin: "100px",
   }
 );
@@ -90,7 +90,6 @@ function filterProject() {
       searchResult.textContent = "Here is your project";
       project.style.display = "block";
     } else {
-      searchResult.textContent = "No Match Related to Query";
       project.style.display = "none";
     }
     if (filterValue === "all") {
@@ -156,12 +155,29 @@ var typed = new Typed(".typing", {
 
 //theme setup
 // primary color generator
-let color = document.querySelectorAll("#theme ul li span").forEach((e) => {
+let color = "hsl(330, 91%, 34%)";
+let color2 = "hsl(283, 100%, 27%)";
+document.querySelectorAll("#theme ul li span").forEach((e) => {
   e.style.backgroundColor = `${e.getAttribute("data-color")}`;
   e.onclick = () => {
     document
       .querySelector(":root")
       .style.setProperty("--primary", e.getAttribute("data-color"));
+    document
+      .querySelector(":root")
+      .style.setProperty(
+        "--secondary",
+        e.parentNode.nextElementSibling
+          ? e.parentNode.nextElementSibling?.children[0].getAttribute(
+              "data-color"
+            )
+          : "cyan"
+      );
+
+    color = e.getAttribute("data-color");
+    color2 = e.parentNode.nextElementSibling
+      ? e.parentNode.nextElementSibling?.children[0].getAttribute("data-color")
+      : "cyan";
     document.querySelector("#theme").classList.remove("active");
   };
 });
@@ -174,3 +190,24 @@ document.querySelector("#color").oninput = () => {
   document.querySelector(":root").style.setProperty("--secondary", color);
   document.querySelector("#theme").classList.remove("active");
 };
+
+tags.forEach((tag) => {
+  tag.onclick = () => {
+    filterName.value = tag.textContent;
+    filterProject();
+  };
+});
+let timer = null;
+const msgShower = () => {
+  const profile = ["Developer", "Freelancer", "Debugger"];
+  timer = setInterval(() => {
+    console.clear();
+    let msg = profile[Math.floor(Math.random() * profile.length)];
+    let angle = Math.floor(Math.random() * 360);
+    console.log(
+      `%c ${username} : ${msg} \n Console Modify by Vineet Singh`,
+      `color:#fff; font-family:duck; padding:10px; background-image:linear-gradient(${angle}deg, ${color}, ${color2}); font-size: clamp(1rem, 5vw, 2rem); border-radius:20px;margin:1rem;box-shadow: 0 0 20px ${color}, 0 0 20px ${color2}`
+    );
+  }, 5000);
+};
+msgShower();
