@@ -39,6 +39,14 @@
         </div>
       </div>
     </div>
+    <script>
+      const loader = document.querySelector(".loader");
+      document.addEventListener("DOMContentLoaded", () => {
+        loader.style.display = "none";
+        loader.style.position = "static";
+        loader.style.animation = "unset";
+      })
+    </script>
     <div class="bg">
     </div>
     <button id="myBtn" title="Top">&#8679;</button>
@@ -1037,15 +1045,8 @@
       </div>
     </section>
   </div>
-  <script>
-    let p1 = document.querySelector('.loader')
-    document.onreadystatechange = () => {
-      p1.style = 'display:none;animation:unset'
-    }
-  </script>
   <!-- <script src="js/ociliator.js"></scrip> -->
   <script src="js/index.js" async></script>
-
 </body>
 
 </html>
