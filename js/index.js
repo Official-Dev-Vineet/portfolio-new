@@ -10,6 +10,12 @@ const textarea = document.querySelector("textarea");
 const searchResult = document.querySelector("#searchResult");
 const username = "Vineet Singh";
 const profile = ["Developer", "Freelancer", "Debugger", "Tester"];
+window.addEventListener("load", () => {
+  const loader = document.querySelector(".loader");
+  loader.style.display = "none";
+  loader.style.position = "static";
+  loader.style.animation = "unset";
+});
 window.addEventListener("scroll", (e) => {
   if (window.scrollY > 20) {
     nav.classList.add("active");
