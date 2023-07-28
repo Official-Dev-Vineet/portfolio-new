@@ -10,7 +10,6 @@ const textarea = document.querySelector("textarea");
 const searchResult = document.querySelector("#searchResult");
 const username = "Vineet Singh";
 const profile = ["Developer", "Freelancer", "Debugger", "Tester"];
-
 window.addEventListener("scroll", (e) => {
   if (window.scrollY > 20) {
     nav.classList.add("active");
