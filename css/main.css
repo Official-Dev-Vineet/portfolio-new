@@ -244,6 +244,7 @@ header nav ul li a {
 .hero-page .hero-text {
   max-width: 62%;
   margin: auto;
+  backdrop-filter:blur(10px);
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -769,5 +770,58 @@ input:focus {
   .hero-page .hero-image {
     max-width: 100%;
     min-height: 50rem;
+  }
+}
+
+/* bg animation */
+
+.bg {
+  position: fixed;
+  height: 100vh;
+  width: 100vw;
+  top: 0;
+  left: 0;
+  background-color: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 60px;
+  overflow: hidden;
+  transform: perspective(1000px);
+  transform-style: preserve-3d;
+  z-index: -1;
+}
+.bg span {
+  position: relative;
+  display: inline-block;
+  transform-origin: center;
+  height: 5rem;
+  width: 5rem;
+  opacity: 0;
+  transition: all 500ms ease;
+  animation: opacity infinite 6s linear alternate;
+}
+.bg span:nth-child(odd) {
+  animation-delay: -5s;
+  box-shadow: 0 0 1rem var(--light-gray);
+}
+.bg span:nth-child(even) {
+  animation-delay: -10s;
+}
+@keyframes opacity {
+  0% {
+    opacity: 0;
+    transform: translate3d(-50px, -50px, 30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translate3d(50px, 50px, 30px);
+  }
+}
+@media screen and (max-width:300px) {
+ .contact-link{
+    padding: 1.5rem;
+  }
+  .contact-link .contact-info{
+    gap: 1.5rem;
   }
 }
