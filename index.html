@@ -21,6 +21,14 @@
   <link rel="icon" href="images/person-svgrepo-com.svg" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
+  <script>
+    document.addEventListener("DOMContentLoaded", () => {
+      const loader = document.querySelector(".loader");
+      loader.style.display = "none";
+      loader.style.position = "static";
+      loader.style.animation = "unset";
+    })
+  </script>
 </head>
 
 <body>
@@ -39,14 +47,7 @@
         </div>
       </div>
     </div>
-    <script>
-      const loader = document.querySelector(".loader");
-      document.addEventListener("DOMContentLoaded", () => {
-        loader.style.display = "none";
-        loader.style.position = "static";
-        loader.style.animation = "unset";
-      })
-    </script>
+
     <div class="bg">
     </div>
     <button id="myBtn" title="Top">&#8679;</button>

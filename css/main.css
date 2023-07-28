@@ -837,6 +837,7 @@ input:focus {
   top: 0;
   left: 0;
   z-index: 9999;
+  width: 100vw;
   display: grid;
   place-items: center;
   min-height: 100vh;
