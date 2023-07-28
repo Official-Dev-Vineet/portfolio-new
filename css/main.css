@@ -794,7 +794,6 @@ input:focus {
   position: relative;
   display: inline-block;
   transform-origin: center;
-  opacity: 0;
   height: clamp(2rem, 5vw, 5rem);
   width: clamp(2rem, 5vw, 5rem);
   transition: all 600ms ease;
