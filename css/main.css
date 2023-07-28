@@ -832,9 +832,6 @@ input:focus {
   margin: 0;
   padding: 0;
 }
-:root {
-  font-size: calc(16px + (20 - 16) * (100vw - 320px) / (1280 - 320));
-}
 .loader {
   display: grid;
   place-items: center;

@@ -21,12 +21,6 @@
   <link rel="icon" href="images/person-svgrepo-com.svg" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
-  <script>
-    let p1 = document.querySelector('.p1')
-    document.onreadystatechange = () => {
-      p1.style = 'display:none;animation:unset'
-    }
-  </script>
 </head>
 
 <body>
@@ -45,6 +39,12 @@
         </div>
       </div>
     </div>
+    <script>
+      let p1 = document.querySelector('.loader')
+      document.onreadystatechange = () => {
+        p1.style = 'display:none;animation:unset'
+      }
+    </script>
     <div class="bg">
     </div>
     <button id="myBtn" title="Top">&#8679;</button>
