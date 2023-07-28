@@ -21,11 +21,30 @@
   <link rel="icon" href="images/person-svgrepo-com.svg" />
   <link rel="preconnect" href="https://cdnjs.cloudflare.com/" />
   <script src="https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js"></script>
+  <script>
+    let p1 = document.querySelector('.p1')
+    document.onreadystatechange = () => {
+      p1.style = 'display:none;animation:unset'
+    }
+  </script>
 </head>
 
 <body>
   <div class="container">
     <!-- <canvas id="canvas"></canvas> -->
+    <div class="loader">
+      <div class="pl">
+        <div class="pl__outer-ring"></div>
+        <div class="pl__inner-ring"></div>
+        <div class="pl__track-cover"></div>
+        <div class="pl__ball">
+          <div class="pl__ball-texture"></div>
+          <div class="pl__ball-outer-shadow"></div>
+          <div class="pl__ball-inner-shadow"></div>
+          <div class="pl__ball-side-shadows"></div>
+        </div>
+      </div>
+    </div>
     <div class="bg">
     </div>
     <button id="myBtn" title="Top">&#8679;</button>

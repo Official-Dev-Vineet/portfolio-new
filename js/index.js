@@ -245,7 +245,3 @@ window.onresize = () => {
   backgroundGenerator();
   msgShower();
 };
-document.body.style='display:none'
-document.onreadystatechange = () => {
-  document.body.style='display:unset'
-}
