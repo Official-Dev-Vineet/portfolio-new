@@ -250,3 +250,18 @@ window.onresize = () => {
   backgroundGenerator();
   msgShower();
 };
+
+// caching for offline mode
+
+if (navigator.onLine) {
+  caches.open("cache").then((cache) => {
+    cache.addAll([
+      "https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js",
+      "index.html",
+      "css/main.css",
+      "css/font/Rubber-Duck.ttf",
+      "js/index.js",
+      "images/*",
+    ]);
+  });
+}
