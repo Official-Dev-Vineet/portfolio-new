@@ -289,7 +289,7 @@ function customCursor() {
     cursor.style.height = size;
     cursor.style.width = size;
     cursor.style.boxShadow = "0 0 10px var(--primary)";
-    cursor.style.borderRadius = 50 + "%";
+    cursor.style.borderRadius = random(10, 50) + "%";
     cursor.style.position = "fixed";
     cursor.style.zIndex = 999999;
     document.body.appendChild(cursor);
@@ -297,6 +297,5 @@ function customCursor() {
       document.body.removeChild(cursor);
     }, 500);
   });
-  document.body.style.cursor = "pointer";
 }
 customCursor();
