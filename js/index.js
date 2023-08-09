@@ -54,6 +54,32 @@ const observer = new IntersectionObserver(
 animate.forEach((element) => {
   observer.observe(element);
 });
+const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
+// pause animation
+document.getElementById("animation").addEventListener("click", () => {
+  document.querySelectorAll(".bgSpan").forEach((element) => {
+    element.animate(
+      [
+        {
+          transform: `translate3d(-50px, -50px, 30px) matrix(${random(
+            2,
+            15
+          )},${random(2, 15)},1,1,0,0)`,
+        },
+        {
+          transform: `translate3d(-50px, -50px, -30px) matrix(${random(
+            2,
+            15
+          )} ,${random(2, 15)},1,1,0,0)`,
+        },
+      ],
+      {
+        duration: 6000,
+        iterations: Infinity,
+      }
+    );
+  });
+});
 
 // hide navigation when click on nav links
 const links = document.querySelectorAll("nav ul li");
@@ -215,8 +241,6 @@ const msgShower = () => {
     );
   }, 5000);
 };
-msgShower();
-
 // background animation generator
 let bg = document.querySelector(".bg");
 let timerBg = null;
@@ -229,6 +253,7 @@ function backgroundGenerator() {
   for (let i = 1; i < window.innerWidth; i++, i += 100) {
     for (let j = 1; j < window.innerHeight; j++, j += 100) {
       let span = document.createElement("span");
+      span.classList.add("bgSpan");
       span.style.background = color();
       span.style.scale = Math.random();
       bg.appendChild(span);
@@ -241,7 +266,7 @@ function backgroundGenerator() {
       element.style.borderRadius = Math.floor(Math.random() * 100) + "%";
       element.style.rotate = Math.floor(Math.random() * 360).toString() + "deg";
     });
-  }, 3000);
+  }, 6000);
 }
 backgroundGenerator();
 window.onresize = () => {
@@ -250,18 +275,28 @@ window.onresize = () => {
   backgroundGenerator();
   msgShower();
 };
-
-// caching for offline mode
-
-if (navigator.onLine) {
-  caches.open("cache").then((cache) => {
-    cache.addAll([
-      "https://cdnjs.cloudflare.com/ajax/libs/typed.js/2.0.9/typed.min.js",
-      "index.html",
-      "css/main.css",
-      "css/font/Rubber-Duck.ttf",
-      "js/index.js",
-      "images/*",
-    ]);
+function customCursor() {
+  document.addEventListener("mousemove", (e) => {
+    e.preventDefault();
+    let x = e.clientX;
+    let y = e.clientY;
+    let cursor = document.createElement("span");
+    cursor.setAttribute("class", "cursor");
+    cursor.style.left = x + "px";
+    cursor.style.top = y + "px";
+    // cursor.style.border = "1px solid #fff";
+    let size = Math.floor(Math.random() * 50) + "px";
+    cursor.style.height = size;
+    cursor.style.width = size;
+    cursor.style.boxShadow = "0 0 10px var(--primary)";
+    cursor.style.borderRadius = 50 + "%";
+    cursor.style.position = "fixed";
+    cursor.style.zIndex = 999999;
+    document.body.appendChild(cursor);
+    setTimeout(() => {
+      document.body.removeChild(cursor);
+    }, 500);
   });
+  document.body.style.cursor = "pointer";
 }
+customCursor();

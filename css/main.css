@@ -112,7 +112,6 @@ html {
 #theme .your-theme h2 {
   font-size: 1.6rem;
   display: block;
-  letter-spacing: 2px;
   margin-bottom: 10px;
 }
 #theme .your-theme input {
@@ -169,6 +168,8 @@ header {
   align-items: center;
   padding: 2rem;
   position: relative;
+  transition: 300ms;
+  border-radius: 0 0 1rem 1rem;
 }
 header.active {
   background-color: rgba(0, 0, 0, 0.3);
@@ -245,6 +246,10 @@ header nav ul li a {
   max-width: 62%;
   margin: auto;
   backdrop-filter: blur(10px);
+  padding:2rem 1rem;
+  border-radius: 2rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  box-shadow: 0 0 0 5px var(--primary), 0 -1px 0 2px var(--secondary);
 }
 .hero-text h1 {
   font-size: 5rem;
@@ -366,6 +371,7 @@ header nav ul li a {
   box-shadow: 0 0 1rem var(--light-gray);
   backdrop-filter: blur(1rem);
   transition: all 400ms ease-in;
+  background-color: rgba(0, 0, 0, 0.3);
 }
 .service > div:not(:last-child) {
   margin-bottom: 2.4rem;
@@ -541,6 +547,8 @@ p.description {
   display: flex;
   flex-wrap: wrap;
   gap: 3rem;
+  background-color: rgba(0, 0, 0, 0.3);
+  backdrop-filter: blur(1rem);
 }
 .contact-area > div {
   flex: 1 1 35rem;
@@ -703,6 +711,7 @@ input:focus {
     transition: 300ms;
     left: 0;
     z-index: 2;
+
   }
   nav.active {
     top: 0;
@@ -793,11 +802,13 @@ input:focus {
 .bg span {
   position: relative;
   display: inline-block;
-  transform-origin: center;
   height: clamp(2rem, 5vw, 5rem);
   width: clamp(2rem, 5vw, 5rem);
-  transition: all 600ms ease;
-  animation: opacity infinite 3s linear alternate;
+  transition: all 400ms ease-in-out;
+  animation: opacity infinite 6s linear alternate;
+}
+.bgAnimation {
+  animation: rotate infinite 6s linear;
 }
 .bg span:nth-child(odd) {
   animation-delay: -5s;
@@ -808,7 +819,7 @@ input:focus {
 @keyframes opacity {
   0% {
     opacity: 0;
-    transform: translate3d(-50px, -50px, 30px);
+    transform: translate3d(-50px, -50px, -30px);
   }
   100% {
     opacity: 1;
@@ -825,13 +836,6 @@ input:focus {
 }
 
 /* loader styling  */
-
-* {
-  border: 0;
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
 .loader {
   position: fixed;
   top: 0;
@@ -1007,3 +1011,7 @@ input:focus {
     transform: rotate(360deg);
   }
 }
+
+
+
+/* custom cursor styling  */
