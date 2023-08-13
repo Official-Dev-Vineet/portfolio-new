@@ -298,4 +298,4 @@ function customCursor() {
     }, 500);
   });
 }
-customCursor();
+// customCursor();
