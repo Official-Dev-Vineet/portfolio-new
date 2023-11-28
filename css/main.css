@@ -140,17 +140,18 @@ canvas {
 }
 /* scrollToTop btn */
 #myBtn {
-  display: none; /* Hidden by default */
-  position: fixed; /* Fixed/sticky position */
-  bottom: 2rem; /* Place the button at the bottom of the page */
-  right: 2rem; /* Place the button 30px from the right */
-  z-index: 99; /* Make sure it does not overlap */
-  background-color: var(--light-gray); /* Set a background color */
-  color: var(--light-primary); /* Text color */
-  cursor: pointer; /* Add a mouse pointer on hover */
-  padding: 1.5rem; /* Some padding */
-  border-radius: 1rem; /* Rounded corners */
-  font-size: 2.4rem; /* Increase font size */
+  display: none;
+  position: fixed;
+  bottom: 2rem;
+  right: 2rem;
+  z-index: 99;
+  background-color: var(--light-gray);
+  color: var(--light-primary);
+  cursor: pointer;
+  padding: 2rem;
+  border-radius: 1rem;
+  font-size: 2rem;
+  -webkit-text-stroke: 2px var(--light);
 }
 
 #myBtn:hover {
@@ -173,6 +174,7 @@ header {
 }
 header.active {
   background-color: rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid var(--light);
   position: sticky;
   top: 0;
   backdrop-filter: blur(1rem) brightness(60%);
@@ -214,6 +216,7 @@ header nav ul li a {
   transition: all 300ms ease;
   position: relative;
   font-weight: 700;
+  font-size: clamp(1.5rem, 3vw, 2.5rem);
 }
 /* intersecting styling */
 .animate {
@@ -230,7 +233,9 @@ header nav ul li a {
 .typing {
   font-family: duck;
   letter-spacing: 2px;
-  font-size: clamp(2rem, 8vw, 6rem);
+  margin-left: 1rem;
+  -webkit-text-stroke: 1px var(--light);
+  font-size: clamp(2rem, 8vw, 8rem);
 }
 /* hero section  */
 .hero-page {
@@ -246,7 +251,7 @@ header nav ul li a {
   max-width: 62%;
   margin: auto;
   backdrop-filter: blur(10px);
-  padding:2rem 1rem;
+  padding: 2rem 1rem;
   border-radius: 2rem;
   background-color: rgba(0, 0, 0, 0.3);
   box-shadow: 0 0 0 5px var(--primary), 0 -1px 0 2px var(--secondary);
@@ -297,7 +302,7 @@ header nav ul li a {
   left: 3rem;
   width: 40rem;
   height: 30rem;
-  opacity: 0.6;
+  opacity: 0.5;
   rotate: 34deg;
 }
 .hero-image::before,
@@ -312,7 +317,9 @@ header nav ul li a {
   width: 5rem;
   height: 5rem;
   background-color: var(--primary);
-  border: 2rem solid var(--dark-gray);
+  border: 2rem dotted var(--light);
+  animation: rotate 5s linear infinite backwards;
+  box-shadow: 0 0 10px var(--light-gray);
 }
 .hero-image::after,
 .hero-bubble::after {
@@ -326,7 +333,28 @@ header nav ul li a {
   width: 5rem;
   height: 5rem;
   background-color: var(--secondary);
-  border: 2rem solid var(--dark-gray);
+  border: 2rem dashed var(--light-secondary);
+  animation: rotate 5s linear infinite;
+  box-shadow: 0 0 30px var(--light-gray);
+}
+@keyframes rotate {
+  0%,
+  100% {
+    transform: rotate3d(1, 0.4, 1, 40deg) translate3d(5vw, 5vw, 5vw);
+    border-color: rgb(0, 251, 167);
+    opacity: 0.5;
+    scale: 0.6;
+  }
+  50% {
+    transform: rotate3d(2, -5, -1, 160deg) translate3d(-5vw, -5vh, 5vw);
+    border-color: rgb(255, 106, 0);
+  }
+  70% {
+    transform: rotate3d(2, -5, -1, 360deg) translate3d(-8vh, -8vh, -5vw);
+    border-color: rgb(0, 243, 251);
+    opacity: 0.9;
+    scale: 3;
+  }
 }
 .hero-image img {
   width: 100%;
@@ -373,29 +401,29 @@ header nav ul li a {
   transition: all 400ms ease-in;
   background-color: rgba(0, 0, 0, 0.3);
 }
-.service > div:not(:last-child) {
+.hero-services .my-services .service > div:not(:last-child) {
   margin-bottom: 2.4rem;
 }
-.service .icon {
-  transition-delay: 400ms;
-  width: 10rem;
-  height: 10rem;
+.hero-services .my-services .service .icon {
+  transition: 400ms;
+  width: 10em;
+  height: 10em;
 }
-.service:hover {
-  background-color: var(--light-primary);
+.hero-services .my-services .service:hover {
+  background-color: var(--light-secondary);
   color: var(--light-secondary);
 }
-.service:hover .icon {
+.hero-services .my-services .service:hover .icon {
   margin-left: auto;
 }
-.service h2 {
+.hero-services .my-services .service h2 {
   font-size: 2.4rem;
   color: var(--light-primary);
 }
-.service:hover h2 {
+.hero-services .my-services .service:hover h2 {
   color: var(--light);
 }
-.service p {
+.hero-services .my-services .service p {
   font-size: 1.6rem;
   margin-top: -1rem;
 }
@@ -711,7 +739,6 @@ input:focus {
     transition: 300ms;
     left: 0;
     z-index: 2;
-
   }
   nav.active {
     top: 0;
@@ -729,9 +756,8 @@ input:focus {
     white-space: nowrap;
     padding: 2rem;
     position: relative;
-    font-size: 5rem;
     color: var(--light-gray);
-    transition: 400ms;
+    transition: 200ms;
     color: #fff;
     width: 100%;
   }
@@ -793,10 +819,9 @@ input:focus {
   background-color: inherit;
   display: flex;
   flex-wrap: wrap;
-  gap: 60px;
+  gap: 30px;
   overflow: hidden;
   transform: perspective(1000px);
-  transform-style: preserve-3d;
   z-index: -1;
 }
 .bg span {
@@ -804,6 +829,7 @@ input:focus {
   display: inline-block;
   height: clamp(2rem, 5vw, 5rem);
   width: clamp(2rem, 5vw, 5rem);
+  transform-style: preserve-3d;
   transition: all 400ms ease-in-out;
   animation: opacity infinite 6s linear alternate;
 }
@@ -819,11 +845,11 @@ input:focus {
 @keyframes opacity {
   0% {
     opacity: 0;
-    transform: translate3d(-50px, -50px, -30px);
+    transform: translate3d(-10vw, -20vw, -30vh);
   }
   100% {
     opacity: 1;
-    transform: translate3d(50px, 50px, 30px);
+    transform: translate3d(-5vw, -42vw, 30vh);
   }
 }
 @media screen and (max-width: 300px) {
@@ -1011,7 +1037,5 @@ input:focus {
     transform: rotate(360deg);
   }
 }
-
-
 
 /* custom cursor styling  */

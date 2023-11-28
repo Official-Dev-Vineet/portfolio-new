@@ -12,9 +12,7 @@ const username = "Vineet Singh";
 const profile = ["Developer", "Freelancer", "Debugger", "Tester"];
 window.addEventListener("load", () => {
   const loader = document.querySelector(".loader");
-  loader.style.display = "none";
-  loader.style.position = "static";
-  loader.style.animation = "unset";
+  loader.remove();
 });
 window.addEventListener("scroll", (e) => {
   if (window.scrollY > 20) {
@@ -43,7 +41,7 @@ const observer = new IntersectionObserver(
   (entries) => {
     entries.forEach((entry) => {
       entry.target.classList.toggle("animated", entry.isIntersecting);
-      if (entry.isIntersecting) return observer.unobserve(entry.target);
+      // if (entry.isIntersecting) return observer.unobserve(entry.target);
     });
   },
   {
@@ -55,35 +53,9 @@ animate.forEach((element) => {
   observer.observe(element);
 });
 const random = (min, max) => Math.floor(Math.random() * (max - min + 1) + min);
-// pause animation
-document.getElementById("animation").addEventListener("click", () => {
-  document.querySelectorAll(".bgSpan").forEach((element) => {
-    element.animate(
-      [
-        {
-          transform: `translate3d(-50px, -50px, 30px) matrix(${random(
-            2,
-            15
-          )},${random(2, 15)},1,1,0,0)`,
-        },
-        {
-          transform: `translate3d(-50px, -50px, -30px) matrix(${random(
-            2,
-            15
-          )} ,${random(2, 15)},1,1,0,0)`,
-        },
-      ],
-      {
-        duration: 6000,
-        iterations: Infinity,
-      }
-    );
-  });
-});
 
 // hide navigation when click on nav links
 const links = document.querySelectorAll("nav ul li");
-
 links.forEach((link) => {
   link.addEventListener("click", (e) => {
     menu?.classList?.remove("active");
@@ -177,14 +149,6 @@ targetedLink.forEach((link) => {
   link.setAttribute("target", "_blank");
 });
 
-// typing js
-var typed = new Typed(".typing", {
-  strings: profile,
-  typeSpeed: 200,
-  backSpeed: 100,
-  loop: true,
-});
-
 //theme setup
 // primary color generator
 let color = "hsl(330, 91%, 34%)";
@@ -205,7 +169,6 @@ document.querySelectorAll("#theme ul li span").forEach((e) => {
             )
           : "cyan"
       );
-
     color = e.getAttribute("data-color");
     color2 = e.parentNode.nextElementSibling
       ? e.parentNode.nextElementSibling?.children[0].getAttribute("data-color")
@@ -247,7 +210,9 @@ let timerBg = null;
 function backgroundGenerator() {
   bg.innerHTML = "";
   const color = () => {
-    var color = `#${Math.floor(Math.random() * 0xffffff).toString(16)}`;
+    var color = `#${Math.floor(Math.random() * 0xffffff)
+      .toString(16)
+      .padEnd(6, "9")}`;
     return color;
   };
   for (let i = 1; i < window.innerWidth; i++, i += 100) {
@@ -284,18 +249,49 @@ function customCursor() {
     cursor.setAttribute("class", "cursor");
     cursor.style.left = x + "px";
     cursor.style.top = y + "px";
-    // cursor.style.border = "1px solid #fff";
-    let size = Math.floor(Math.random() * 50) + "px";
+    cursor.style.border = "1px solid #fff";
+    let size = Math.floor(Math.random() * 20) + "px";
     cursor.style.height = size;
     cursor.style.width = size;
     cursor.style.boxShadow = "0 0 10px var(--primary)";
     cursor.style.borderRadius = random(10, 50) + "%";
-    cursor.style.position = "fixed";
-    cursor.style.zIndex = 999999;
+    cursor.style.position = "absolute";
     document.body.appendChild(cursor);
     setTimeout(() => {
       document.body.removeChild(cursor);
-    }, 500);
+    }, 1500);
   });
 }
 // customCursor();
+
+// custom text changer
+class TextChanger {
+  constructor(text, element, speed = 200) {
+    this.text =
+      typeof text === "string"
+        ? text
+        : text[Math.floor(Math.random() * text.length)];
+    this.element = element;
+    this.speed = speed;
+    this.current = 0;
+    this.timer = null;
+  }
+  ChangeText() {
+    this.element.textContent = "";
+    this.timer = setInterval(() => {
+      const span = document.createElement("span");
+      span.textContent = this.text[this.current];
+      span.style.color = `hsl(${Math.random() * 360}, 100%, 50%)`;
+      this.element.appendChild(span);
+      this.current++;
+      if (this.current === this.text.length) {
+        clearInterval(this.timer);
+      }
+    }, this.speed);
+  }
+}
+const changer = new TextChanger(
+  ["Mern Stack Developer", "PHP Script Writer", "Web Developer"],
+  document.querySelector(".typing")
+);
+changer.ChangeText();
