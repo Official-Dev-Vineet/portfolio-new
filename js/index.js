@@ -258,25 +258,48 @@ const changer = new TextChanger(
 changer.ChangeText();
 
 //  ip log on window load
+function setCookie(name, value, daysToExpire) {
+  const expires = new Date();
+  expires.setTime(expires.getTime() + daysToExpire * 24 * 60 * 60 * 1000);
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+}
+function getCookie(name) {
+  const nameEQ = name + "=";
+  const ca = document.cookie.split(";");
+  for (let i = 0; i < ca.length; i++) {
+    let c = ca[i];
+    while (c.charAt(0) == " ") c = c.substring(1, c.length);
+    if (c.indexOf(nameEQ) == 0) return c.substring(nameEQ.length, c.length);
+  }
+  return null;
+}
 window.addEventListener("load", () => {
+  //   get cookie
+  const ip = getCookie("ip");
   const url =
     "https://api.ipgeolocation.io/ipgeo?apiKey=4dcc137af7a444ea8ece1f767286efea&ip=";
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      fetch("https://breakable-fish-crown.cyclic.app/api/ipLogger", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          ip: data,
-          browser: navigator.userAgent,
-          os: navigator.platform,
-          referer: document.referrer,
-          userTime: new Date(),
-        }),
-      }).then((res) => res.json());
-    })
-    .catch((err) => console.log(err));
+      if (data.ip === ip) {
+        //  do nothing 
+      } else {
+        fetch("https://breakable-fish-crown.cyclic.app/api/ipLogger", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            ip: data,
+            browser: navigator.userAgent,
+            os: navigator.platform,
+            referer: document.referrer,
+            userTime: new Date(),
+          }),
+        }).then((res) => {
+          //  update cookie
+          setCookie("ip", data.ip, 1);
+        });
+      }
+    });
 });
