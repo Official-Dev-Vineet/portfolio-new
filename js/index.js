@@ -258,27 +258,25 @@ const changer = new TextChanger(
 changer.ChangeText();
 
 //  ip log on window load
-function getIp() {
-  const url = "https://api.ipify.org?format=json";
+window.addEventListener("load", () => {
+  const url =
+    "https://api.ipgeolocation.io/ipgeo?apiKey=4dcc137af7a444ea8ece1f767286efea&ip=";
   fetch(url)
     .then((response) => response.json())
     .then((data) => {
-      return data.ip;
+      fetch("http://localhost:5000/api/ipLogger", {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          ip: data,
+          browser: navigator.userAgent,
+          os: navigator.platform,
+          referer: document.referrer,
+          userTime: new Date(),
+        }),
+      }).then((res) => res.json());
     })
-    .catch((error) => {
-      return error;
-    });
-}
-window.addEventListener("load", () => {
-  let ip = getIp();
-//   send ip data to log ip 
-fetch ("https://breakable-fish-crown.cyclic.app/api/ipLogger", {
-    method: "POST",
-    headers: {
-        "Content-Type": "application/json"
-    },
-    body: JSON.stringify({
-        ip: ip
-    })
-}).then((res) => res.json())
+    .catch((err) => console.log(err));
 });
