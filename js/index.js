@@ -261,7 +261,7 @@ changer.ChangeText();
 function setCookie(name, value, daysToExpire) {
   const expires = new Date();
   expires.setTime(expires.getTime() + daysToExpire * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/`;
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/portfolio-new;
 }
 function getCookie(name) {
   const nameEQ = name + "=";
@@ -282,7 +282,8 @@ window.addEventListener("load", () => {
     .then((response) => response.json())
     .then((data) => {
       if (data.ip === ip) {
-        //  do nothing 
+        //  do nothing
+        console.log("same ip");
       } else {
         fetch("https://breakable-fish-crown.cyclic.app/api/ipLogger", {
           method: "POST",
