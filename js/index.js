@@ -261,7 +261,7 @@ changer.ChangeText();
 function setCookie(name, value, daysToExpire) {
   const expires = new Date();
   expires.setTime(expires.getTime() + daysToExpire * 24 * 60 * 60 * 1000);
-  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/portfolio-new`;
+  document.cookie = `${name}=${value};expires=${expires.toUTCString()};path=/portfolio-new/`;
 }
 function getCookie(name) {
   const nameEQ = name + "=";
