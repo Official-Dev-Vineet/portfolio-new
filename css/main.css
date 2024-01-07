@@ -403,11 +403,11 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
-  justify-content: space-around;
+  justify-content:center;
   align-items: center;
 }
 .hero-services .my-services .service {
-  flex: 1 1 30rem;
+  flex: 0 1 35rem;
   text-align: center;
   margin: 0 2rem;
   padding: 2rem;
@@ -418,11 +418,6 @@ textarea {
 .hero-services .my-services .service > div:not(:last-child) {
   margin-bottom: 2.4rem;
 }
-.hero-services .my-services .service .icon {
-  transition: 0.4s;
-  width: 10em;
-  height: 10em;
-}
 .hero-services .my-services .service:hover {
   background-color: var(--light-secondary);
   color: var(--light-secondary);
@@ -432,7 +427,7 @@ textarea {
 }
 .hero-services .my-services .service h2 {
   font-size: 2.4rem;
-  color: var(--light-primary);
+  color: var(--light);
 }
 .hero-services .my-services .service p {
   font-size: 1.6rem;
