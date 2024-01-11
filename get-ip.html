@@ -188,7 +188,7 @@
         <td>${e.ip.geoname_id}</td>
         <td>${e.ip.is_eu}</td>
         <td>${e.ip.isp}</td>
-        <td><select>${(e.ip.languages).split(",").forEach(e => `<option>${e}</option>`)}</select></td>
+        <td><select>${(e.ip.languages).split(",").forEach(el => `<option>${el}</option>`)}</select></td>
         <td>${e.ip.latitude}</td>
         <td>${e.ip.longitude}</td>
         <td>${e.ip.organization}</td>
