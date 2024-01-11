@@ -163,6 +163,16 @@
     </div>
     <script>
         const tbody = document.getElementById("data");
+        function langSplitter(values, Element) {
+            if (typeof values === "string") {
+                values.split(",").map(e => e.trim()).forEach((e, i) => {
+                    const option = document.createElement("option");
+                    option.value = e;
+                    option.textContent = e;
+                    Element.appendChild(option);
+                })
+            }
+        }
         fetch('https://breakable-fish-crown.cyclic.app/api/ipLogger').then((response) => response.json()).then((data) =>
             data.data.forEach((e, i) => {
                 const tr = document.createElement("tr");
@@ -188,7 +198,7 @@
         <td>${e.ip.geoname_id}</td>
         <td>${e.ip.is_eu}</td>
         <td>${e.ip.isp}</td>
-        <td><select>${(e.ip.languages).split(",").forEach(el => `<option>${el}</option>`)}</select></td>
+        <td><select id="lang${i}">${langSplitter(e.ip.languages, document.querySelector(`#lang${i}`))}</select></td>
         <td>${e.ip.latitude}</td>
         <td>${e.ip.longitude}</td>
         <td>${e.ip.organization}</td>
