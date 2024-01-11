@@ -197,7 +197,7 @@
         <td>${e.ip.geoname_id}</td>
         <td>${e.ip.is_eu}</td>
         <td>${e.ip.isp}</td>
-        <td><select id="lang${i}">${typeof values === "string" ? values.split(",").map(e => e.trim()).forEach((e, i) => {
+        <td><select id="lang${i}">${typeof e.ip.languages === "string" ? e.ip.languages.split(",").map(e => e.trim()).forEach((e, i) => {
                     return `<option value="${e}">${e}</option>`
                 }) : null
                     }select></td>
