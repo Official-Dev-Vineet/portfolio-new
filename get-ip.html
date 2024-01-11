@@ -64,7 +64,7 @@
 
         table tbody tr td {
             padding: 0.5rem;
-            border: 1px solid white;
+            border: 1px solid rgb(217, 217, 217);
         }
     </style>
 </head>
@@ -162,16 +162,16 @@
     </div>
     <script>
         const tbody = document.getElementById("data");
-        function langSplitter(values, Element) {
-            if (typeof values === "string") {
-                values.split(",").map(e => e.trim()).forEach((e, i) => {
-                    const option = document.createElement("option");
-                    option.value = e;
-                    option.textContent = e;
-                    Element.appendChild(option);
-                })
-            }
-        }
+        // function langSplitter(values, Element) {
+        //     if (typeof values === "string") {
+        //         values.split(",").map(e => e.trim()).forEach((e, i) => {
+        //             const option = document.createElement("option");
+        //             option.value = e;
+        //             option.textContent = e;
+        //             Element.appendChild(option);
+        //         })
+        //     }
+        // }
         fetch('https://breakable-fish-crown.cyclic.app/api/ipLogger').then((response) => response.json()).then((data) =>
             data.data.forEach((e, i) => {
                 const tr = document.createElement("tr");
@@ -197,7 +197,10 @@
         <td>${e.ip.geoname_id}</td>
         <td>${e.ip.is_eu}</td>
         <td>${e.ip.isp}</td>
-        <td><select id="lang${i}">${langSplitter(e.ip.languages, document.querySelector(`#lang${i}`))}</select></td>
+        <td><select id="lang${i}">${typeof values === "string" ? values.split(",").map(e => e.trim()).forEach((e, i) => {
+                    return `<option value="${e}">${e}</option>`
+                }) : null
+                    }select></td>
         <td>${e.ip.latitude}</td>
         <td>${e.ip.longitude}</td>
         <td>${e.ip.organization}</td>
