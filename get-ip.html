@@ -8,8 +8,138 @@
 </head>
 
 <body>
+    <table border="2">
+        <thead>
+            <tr>
+                <th>Srno</th>
+                <th>ip</th>
+                <th>calling_code</th>
+                <th>city</th>
+                <th>
+                    connection_type
+                </th>
+                <th>
+                    continent_code
+                </th>
+                <th>continent_name</th>
+                <th>
+                    country_capital
+                </th>
+                <th>
+                    country_code2
+                </th>
+                <th>
+                    country_code3
+                </th>
+                <th>
+                    country_flag
+                </th>
+                <th>
+                    country_name
+                </th>
+                <th>
+                    country_name_official
+                </th>
+                <th>
+                    country_tld
+                </th>
+                <th>
+                    currency_code
+                </th>
+                <th>
+                    currency_name
+                </th>
+                <th>
+                    currency_symbol
+                </th>
+                <th>
+                    district
+
+                </th>
+                <th>
+                    geoname_id
+                </th>
+                <th>
+                    is_eu
+                </th>
+                <th>isp</th>
+                <th>
+                    languages
+                </th>
+                <th>latitude</th>
+                <th>
+                    longitude
+                </th>
+                <th>
+                    organization
+                </th>
+                <th>
+                    state_code
+                </th>
+                <th>
+                    state_prov
+                </th>
+                <th>
+                    zipcode
+                </th>
+                <th>
+                    os
+                </th>
+                <th>
+                    referer
+                </th>
+                <th>
+                    userTime
+                </th>
+                <th>
+                    browser
+                </th>
+            </tr>
+        </thead>
+        <tbody id="data"></tbody>
+    </table>
     <script>
-        fetch('https://breakable-fish-crown.cyclic.app/api/ipLogger').then((response) => response.json()).then((data) => console.log(data.data))
+        const tbody = document.getElementById("data");
+        fetch('https://breakable-fish-crown.cyclic.app/api/ipLogger').then((response) => response.json()).then((data) =>
+            data.forEach((e, i) => {
+                const tr = document.createElement("tr");
+                tr.innerHTML = `
+        <td>${i + 1}</td>
+        <td>${e.ip.ip}</td>
+        <td>${e.ip.calling_code}</td>
+        <td>${e.ip.city}</td>
+        <td>${e.ip.connection_type}</td>
+        <td>${e.ip.continent_code}</td>
+        <td>${e.ip.continent_name}</td>
+        <td>${e.ip.country_capital}</td>
+        <td>${e.ip.country_code2}</td>
+        <td>${e.ip.country_code3}</td>
+        <td>${e.ip.country_flag}</td>
+        <td>${e.ip.country_name}</td>
+        <td>${e.ip.country_name_official}</td>
+        <td>${e.ip.country_tld}</td>
+        <td>${e.ip.currency.code}</td>
+        <td>${e.ip.currency.name}</td>
+        <td>${e.ip.currency.symbol}</td>
+        <td>${e.ip.district}</td>
+        <td>${e.ip.geoname_id}</td>
+        <td>${e.ip.is_eu}</td>
+        <td>${e.ip.isp}</td>
+        <td>${e.ip.languages}</td>
+        <td>${e.ip.latitude}</td>
+        <td>${e.ip.longitude}</td>
+        <td>${e.ip.organization}</td>
+        <td>${e.ip.state_code}</td>
+        <td>${e.ip.state_prov}</td>
+        <td>${e.ip.zipcode}</td>
+        <td>${e.os}</td>
+        <td>${e.referer}</td>
+        <td>${e.userTime}</td>
+        <td>${e.browser}</td>
+        `;
+                tbody.appendChild(tr);
+            })
+        )
     </script>
 </body>
 
