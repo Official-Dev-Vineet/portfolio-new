@@ -162,16 +162,6 @@
     </div>
     <script>
         const tbody = document.getElementById("data");
-        // function langSplitter(values, Element) {
-        //     if (typeof values === "string") {
-        //         values.split(",").map(e => e.trim()).forEach((e, i) => {
-        //             const option = document.createElement("option");
-        //             option.value = e;
-        //             option.textContent = e;
-        //             Element.appendChild(option);
-        //         })
-        //     }
-        // }
         fetch('https://breakable-fish-crown.cyclic.app/api/ipLogger').then((response) => response.json()).then((data) =>
             data.data.forEach((e, i) => {
                 const tr = document.createElement("tr");

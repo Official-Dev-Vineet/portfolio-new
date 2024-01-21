@@ -62,9 +62,9 @@ header .logo {
   src: url("font/Rubber-Duck.ttf");
 }
 :root {
-  --primary: hsl(330, 91%, 34%);
+  --primary:#ff4757;
   --light-primary: hsl(330, 91%, 49%);
-  --secondary: hsl(283, 100%, 27%);
+  --secondary: #ffc312;
   --light-secondary: hsl(283, 100%, 50%);
   --dark-gray: hsl(0, 0%, 11%);
   --light-gray: hsl(0, 0%, 41%);
@@ -85,12 +85,31 @@ header .logo {
   transition: 0.3s;
   background-color: var(--primary);
 }
-body {
-  font-family: "Source Sans Pro", sans-serif;
-}
+
 html {
   font-size: clamp(6px, 8px, 12px);
   scroll-behavior: smooth;
+  --font: "Source Sans Pro", sans-serif;
+}
+@font-face {
+  font-family: angle;
+  src: url(font/AngkanyaSebelas-VGPDB.ttf);
+}
+@font-face {
+  font-family: granary;  
+  src: url(font/GranaryCapitalsRegular-X3BEd.ttf);
+}
+@font-face {
+  font-family: selena;
+  src: url(font/SellenaBrush-x3JyK.ttf);
+}
+@font-face {
+  font-family: horbse;
+  src: url(font/HorbseTextured-6Y0mv.otf);
+}
+body {
+  font-family: var(--font, "Source Sans Pro", sans-serif);
+  font-weight: 300 !important;
 }
 #theme {
   color: #fff;
@@ -103,6 +122,10 @@ html {
   right: -250px;
   flex-direction: column;
   z-index: 8;
+  -webkit-backdrop-filter: blur(5px);
+  -moz-backdrop-filter: blur(5px);
+  -o-backdrop-filter: blur(5px);
+  -ms-backdrop-filter: blur(5px);
   backdrop-filter: blur(5px);
   border-radius: 5px 0 0 5px;
   font-weight: 300;
@@ -209,7 +232,7 @@ header .logo {
   font-weight: 700;
   letter-spacing: 3px;
   position: relative;
-  font-family: duck;
+  font-family: horbse;
 }
 .menu {
   font-size: 4rem;
@@ -246,7 +269,7 @@ header nav ul li a {
   scale: 1;
 }
 .typing {
-  font-family: duck;
+  font-family:duck;
   letter-spacing: 2px;
   margin-left: 1rem;
   -webkit-text-stroke: 1px var(--light);
@@ -294,7 +317,7 @@ p.description {
 .contact-area,
 .hero-services .my-services .service {
   background-color: rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(1rem);
+  backdrop-filter: blur(10px);
 }
 .btn:hover {
   background-color: unset;
@@ -394,7 +417,7 @@ textarea {
   text-decoration: underline;
   font-variant: small-caps;
   text-transform: unset;
-  font-family: duck;
+  font-family: angle;
   font-size: clamp(2rem, 10vw, 7rem);
   color: var(--light);
 }
@@ -403,11 +426,11 @@ textarea {
   display: flex;
   flex-wrap: wrap;
   gap: 4rem;
-  justify-content:center;
+  justify-content: center;
   align-items: center;
 }
 .hero-services .my-services .service {
-  flex: 0 1 35rem;
+  flex: 0 1 45rem;
   text-align: center;
   margin: 0 2rem;
   padding: 2rem;
@@ -426,17 +449,20 @@ textarea {
   margin-left: auto;
 }
 .hero-services .my-services .service h2 {
-  font-size: 2.4rem;
+  font-size: 3rem;
+  font-family:horbse;
+  font-weight: 300;
+  margin-bottom: 1rem;
   color: var(--light);
 }
 .hero-services .my-services .service p {
-  font-size: 1.6rem;
-  margin-top: -1rem;
+  font-size: 2rem;
 }
 img {
   width: 100%;
   height: 100%;
-  object-fit: contain;
+  object-fit: 100%;
+  object-position: top;
 }
 .hero-services .hero-bubble {
   rotate: -180deg;
@@ -484,7 +510,7 @@ img {
 .project {
   flex: 0 1 45rem;
   margin: auto;
-  height: 26rem;
+  height: 30rem;
   position: relative;
   box-shadow: 0 0 20px rgba(0, 0, 0, 0.7);
   background-image: linear-gradient(45deg, var(--primary), var(--secondary));
@@ -503,7 +529,6 @@ img {
   outline: 0.3rem dashed var(--light-gray);
 }
 .project .project-image {
-  padding: 0 1rem;
   position: absolute;
   top: 0;
   left: 0;
@@ -1005,14 +1030,14 @@ input:focus {
 }
 
 /* language section styled */
-.flex{
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 2rem;
-    flex-wrap: wrap;
-    margin-block: 2rem;
+.flex {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-block: 2rem;
 }
-.language-img{
-    width: 5vw;
+.language-img {
+  width: 5vw;
 }

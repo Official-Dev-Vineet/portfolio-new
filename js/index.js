@@ -232,7 +232,7 @@ class TextChanger {
       (this.timer = setInterval(() => {
         let e = document.createElement("span");
         (e.textContent = this.text[this.current]),
-          (e.style.color = `hsl(${360 * Math.random()}, 100%, 50%)`),
+          (e.style.color = `hsl(${360 * Math.random()}, 100%, 30%)`),
           this.element.appendChild(e),
           this.current++,
           this.current === this.text.length && clearInterval(this.timer);
@@ -242,16 +242,13 @@ class TextChanger {
 const changer = new TextChanger(
   [
     "Mern Stack Developer",
-    "PHP Script Writer",
     "Web Developer",
     "Python Programmer",
-    "Full Stack Developer",
-    "Frontend Developer",
-    "Backend Developer",
-    "App Developer",
+    "Core PHP Developer",
     "Animation Developer",
     "Graphics Developer On Web",
     "Progressive Web App Developer",
+    "Software Developer",
   ],
   document.querySelector(".typing")
 );
@@ -304,3 +301,12 @@ window.addEventListener("load", () => {
       }
     });
 });
+// FontSelector
+// const fonts = ["angle", "granary", "selena", "horbse"];
+// function fontSelector() {
+//   const random = Math.floor(Math.random() * fonts.length);
+//   document
+//     .querySelector("html")
+//     .style.setProperty("--font", `${fonts[random]}`);
+// }
+// fontSelector();
