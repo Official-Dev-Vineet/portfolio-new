@@ -6,10 +6,10 @@
 I am a student at [Hacettepe University](https://www.hacettepe.edu.tr/)
 
 ## My projects
-[my projects](./projects.html)
+[my projects](https://official-dev-vineet.github.io/portfolio-new/#project)
 
 ## Contact
-[my contact](./contact.html)
+[my contact](https://official-dev-vineet.github.io/portfolio-new/#contact)
 
-## My blog
-[my blog](./blog.html)
+## My service
+[my blog](https://official-dev-vineet.github.io/portfolio-new/#service)
