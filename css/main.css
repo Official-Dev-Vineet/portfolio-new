@@ -91,22 +91,6 @@ html {
   scroll-behavior: smooth;
   --font: "Source Sans Pro", sans-serif;
 }
-@font-face {
-  font-family: angle;
-  src: url(font/AngkanyaSebelas-VGPDB.ttf);
-}
-@font-face {
-  font-family: granary;  
-  src: url(font/GranaryCapitalsRegular-X3BEd.ttf);
-}
-@font-face {
-  font-family: selena;
-  src: url(font/SellenaBrush-x3JyK.ttf);
-}
-@font-face {
-  font-family: horbse;
-  src: url(font/HorbseTextured-6Y0mv.otf);
-}
 body {
   font-family: var(--font, "Source Sans Pro", sans-serif);
   font-weight: 300 !important;
@@ -417,7 +401,6 @@ textarea {
   text-decoration: underline;
   font-variant: small-caps;
   text-transform: unset;
-  font-family: angle;
   font-size: clamp(2rem, 10vw, 7rem);
   color: var(--light);
 }
@@ -450,7 +433,6 @@ textarea {
 }
 .hero-services .my-services .service h2 {
   font-size: 3rem;
-  font-family:horbse;
   font-weight: 300;
   margin-bottom: 1rem;
   color: var(--light);

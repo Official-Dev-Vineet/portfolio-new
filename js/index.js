@@ -202,6 +202,7 @@ function backgroundGenerator() {
       l.classList.add("bgSpan"),
         (l.style.background = e()),
         (l.style.scale = Math.random()),
+        (l.style.borderRadius)=Math.floor(100 * Math.random()) + "%",
         bg.appendChild(l);
     }
   let o = document.querySelectorAll(".bg span");
@@ -209,7 +210,8 @@ function backgroundGenerator() {
     o.forEach((t, r) => {
       (t.style.background = e()),
         (t.style.borderRadius = Math.floor(100 * Math.random()) + "%"),
-        (t.style.rotate = Math.floor(360 * Math.random()).toString() + "deg");
+        (t.style.rotate = Math.floor(360 * Math.random()).toString() + "deg"),
+        (t.style.scale = Math.floor( Math.random() * 2) );
     });
   }, 6e3);
 }
