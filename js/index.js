@@ -9,7 +9,13 @@ const nav = document.querySelector("header"),
   textarea = document.querySelector("textarea"),
   searchResult = document.querySelector("#searchResult"),
   username = "Vineet Singh",
-  profile = ["Developer", "Freelancer", "Debugger", "Tester"];
+  profile = [
+    "MERN Stack",
+    "Core PHP",
+    "Debugger",
+    "Project Management",
+    "Python",
+  ];
 window.addEventListener("load", () => {
   let e = document.querySelector(".loader");
   e.remove();
@@ -99,13 +105,31 @@ submitBtn.addEventListener("click", (e) => {
     o = r.get("clientEmail").trim(),
     n = r.get("subject").trim(),
     a = r.get("projectDetails").trim();
-  function i() {
-    let e = new Date();
-    window.location.href = `https://wa.me/917983920962?text=Name :${l},%0AEmail :${o}%0A Subject : ${n}%0A Project Idea : ${a}%0A Date : ${e} %0A this is send from Vineet Singh Portfolio and below is the link : %0A ${window.location.href}`;
+  async function i() {
+    let e = await fetch("https://breakable-fish-crown.cyclic.app/sendmail", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json",
+        Accept: "application/json",
+      },
+      body: JSON.stringify({
+        name: l,
+        email: o,
+        subject: n,
+        projectDes: a,
+      }),
+    })
+      .then((e) => e.json())
+      .then((e) => {
+        e.success
+          ? (alert("Thanks for contacting us !"),
+            (t.reset(), (searchResult.textContent = "")))
+          : alert("Something went wrong !");
+      });
   }
   l.length > 0 && o.length > 0 && n.length > 0 && a.length > 0
     ? i()
-    : alert("Please fill correct details !");
+    : alert("Please fill all details !");
 });
 const targetedLink = document.querySelectorAll(".btn-group a");
 targetedLink.forEach((e) => {
@@ -155,8 +179,9 @@ let timer = null;
 const msgShower = () => {
   timer = setInterval(() => {
     console.clear();
-    let e = profile[Math.floor(Math.random() * profile.length)],
-      t = Math.floor(360 * Math.random());
+    let e = profile[Math.floor(Math.random() * profile.length)];
+
+    let t = Math.floor(360 * Math.random());
     console.log(
       `%c Vineet Singh : ${e} 
  Console Modify by Vineet Singh`,

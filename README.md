@@ -3,7 +3,7 @@
 ![my-image](./images/my-image.png)
 
 ## About me
-I am a student at [Hacettepe University](https://www.hacettepe.edu.tr/)
+I am a student at [Hacettepe University]
 
 ## My projects
 [my projects](./projects.html)
