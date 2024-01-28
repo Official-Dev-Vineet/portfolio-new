@@ -122,8 +122,7 @@ submitBtn.addEventListener("click", (e) => {
       .then((e) => e.json())
       .then((e) => {
         e.code === 200
-          ? (alert("Thanks for contacting us !"),
-            (t.reset(), (searchResult.textContent = "")))
+          ? (alert(e?.message), (t.reset(), (searchResult.textContent = "")))
           : alert("Something went wrong !");
       });
   }
