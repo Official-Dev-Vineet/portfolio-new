@@ -6,8 +6,8 @@
 <<<<<<< HEAD
 I am a student at [Hacettepe University]
 =======
-I am a software developer at [Kiyan Ch solotions](https://www.kiyanchsolutions.com/)
->>>>>>> b1ec1fd3fa1ef54a76a70373ff2b575ce60952b0
+I am a freelancer. top at mern devs and core php modules and file handling api creating in node and php. 
+>>>>>>>
 
 ## My projects
 [my projects](https://official-dev-vineet.github.io/portfolio-new/#projects)
